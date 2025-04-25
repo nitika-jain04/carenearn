@@ -143,7 +143,7 @@ function SeekHelp() {
 
       <div className="grid grid-rows-1 gap-10 lg:gap-20 lg:px-40 px-10">
         <div className="flex justify-between rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10 w-1/2">
             <div>
               <p className="text-3xl font-semibold text-rose-500">
                 Child Education
