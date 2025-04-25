@@ -47,7 +47,7 @@ function SeekHelp() {
         </div>
 
         <div className="bg-rose-400 rounded-2xl mx-10">
-          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-lg lg:text-xl tracking-wide rounded-2xl text-justify">
+          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl text-justify">
             {/* <p className="text-justify"> */}
             Carenearn is about creating a platform a symbiotic relations, where
             the emptiness of the elders who are still active and have depth of
@@ -70,7 +70,7 @@ function SeekHelp() {
         </div>
 
         <div className="bg-rose-400 rounded-2xl mx-10">
-          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-lg lg:text-xl tracking-wide rounded-2xl">
+          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl">
             <div>
               {/* <p className="text-justify"> */}
               We might have house help, probably an essential requirement but we
@@ -141,7 +141,7 @@ function SeekHelp() {
         <div className="w-20 h-1 bg-rose-500 rounded-full mb-6"></div>
       </div>
 
-      <div className="grid grid-rows-1 gap-10 lg:gap-20 px-40">
+      <div className="grid grid-rows-1 gap-10 lg:gap-20 lg:px-40 px-10">
         <div className="flex justify-between rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10">
             <div>
@@ -158,12 +158,16 @@ function SeekHelp() {
             </div>
           </div>
 
-          <div>
-            <img src="/login.png" alt="" className="size-52" />
+          <div className="md:w-1/2 flex justify-center items-center">
+            <img
+              src={images[currentImageIndex]}
+              alt={`admin-${currentImageIndex + 1}`}
+              className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
+            />
           </div>
         </div>
 
-        <div className="flex justify-between items-center rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10">
             <>
               <p className="text-3xl font-semibold text-rose-500">
@@ -172,38 +176,48 @@ function SeekHelp() {
             </>
             <div className="ml-5 list-disc flex flex-col gap-5 text-xl tracking-wide">
               <li>Chess / Board Games</li>
-              <li>Creative Arts / Painting / Sculpture</li>
-              <li>Creative Games / Lego / Builders / Writings</li>
               <li>Story Sessions</li>
               <li>Any Other</li>
+              <li>Creative Arts / Painting / Sculpture</li>
+              <li>Creative Games / Lego / Builders / Writings</li>
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 flex justify-center items-center">
+          <div className="md:w-1/2 flex justify-center items-center">
             <img
               src={activities[currentImageIndex]}
               alt={`admin-${currentImageIndex + 1}`}
-              className="rounded-lg shadow-md w-96 h-72 object-cover transition-all duration-500 hover:-skew-x-6"
+              className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
             />
           </div>
         </div>
 
-        <div className="flex flex-col gap-10 rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <Fragment>
-            <p className="text-3xl font-semibold text-rose-500">
-              Care of Loved Ones - The Seniors
-            </p>
-          </Fragment>
+        <div className="flex justify-center items-center gap-3 rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+          <div className="flex flex-col gap-10">
+            <Fragment>
+              <p className="text-3xl font-semibold text-rose-500">
+                Care of Loved Ones - The Seniors
+              </p>
+            </Fragment>
 
-          <div className="ml-5 list-disc flex flex-col gap-5 text-xl tracking-wide">
-            <li>Take them to hospital</li>
-            <li>Spend time reading books and stories</li>
-            <li>Engaging them in any acivity they like</li>
-            <li>Tale them to mall / shopping</li>
+            <div className="ml-5 list-disc flex flex-col gap-5 text-xl tracking-wide">
+              <li>Take them to hospital</li>
+              <li>Spend time reading books and stories</li>
+              <li>Engaging them in any acivity they like</li>
+              <li>Tale them to mall / shopping</li>
+            </div>
+          </div>
+
+          <div className="md:w-1/2 flex justify-center items-center">
+            <img
+              src={images[currentImageIndex]}
+              alt={`admin-${currentImageIndex + 1}`}
+              className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
+            />
           </div>
         </div>
 
-        <div className="flex justify-between items-center rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex justify-center items-center gap-3 rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10">
             <>
               <p className="text-3xl font-semibold text-rose-500">
@@ -218,11 +232,11 @@ function SeekHelp() {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 flex justify-center items-center">
+          <div className="md:w-1/2 flex justify-center items-center">
             <img
               src={images[currentImageIndex]}
               alt={`admin-${currentImageIndex + 1}`}
-              className="rounded-lg shadow-md w-96 h-72 object-cover transition-all duration-500 hover:-skew-x-6"
+              className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
             />
           </div>
         </div>

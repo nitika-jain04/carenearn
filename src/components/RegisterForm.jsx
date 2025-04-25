@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { Eye, EyeOff } from "lucide-react";
+import NestedCheckbox from "./NestedCheckBox";
 
 function RegisterForm() {
   const { pathname } = useLocation();
@@ -38,14 +39,12 @@ function RegisterForm() {
       </div>
 
       <div className="lg:w-1/2 flex flex-col justify-center">
-        <div className="flex flex-col justify-center mx-5 md:mx-10 lg:mx-40 lg:my-14 bg-pink-100 rounded-3xl shadow-xl">
+        <div className="flex flex-col justify-center mx-5 md:mx-10 2xl:mx-40 lg:my-14 bg-pink-100 rounded-3xl shadow-xl">
           <div className="flex gap-5 text-2xl font-medium px-10 py-5">
             <Link to="/login">
               <button
                 className={`${
-                  pathname === "/login"
-                    ? "text-rose-600 font-semibold"
-                    : "text-gray-600"
+                  pathname === "/login" ? "font-semibold" : "font-normal"
                 }`}
               >
                 Login
@@ -56,8 +55,8 @@ function RegisterForm() {
                 className={`${
                   pathname === "/register" ||
                   pathname === "/register/register-form"
-                    ? "text-rose-600 font-semibold"
-                    : "text-gray-600"
+                    ? "font-semibold"
+                    : "font-normal"
                 }`}
               >
                 Register
@@ -66,7 +65,7 @@ function RegisterForm() {
           </div>
 
           <div className="flex flex-col gap-6 bg-white px-10 py-6 rounded-3xl">
-            <div className="flex flex-col gap-4 overflow-y-auto max-h-[450px] pr-2 text-sm">
+            <div className="flex flex-col gap-4 lg:overflow-y-auto xl:max-h-[450px] pr-2 text-sm">
               <InputField label="Name" required placeholder="Enter your name" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <InputField
@@ -104,6 +103,33 @@ function RegisterForm() {
                 label="Profession"
                 required
                 placeholder="Your profession"
+              />
+
+              <div className="flex flex-col gap-1">
+                <label className="font-medium text-gray-700">
+                  Purpose{<span className="text-red-500">*</span>}
+                </label>
+              </div>
+
+              <NestedCheckbox label="Child Care" childrenOptions={[]} />
+              <NestedCheckbox label="Child Education" childrenOptions={[]} />
+              <NestedCheckbox label="Parents Care" childrenOptions={[]} />
+              <NestedCheckbox
+                label="Activities"
+                childrenOptions={[
+                  "Music",
+                  "Painting",
+                  "Board Games",
+                  "Creative Games",
+                ]}
+              />
+              <NestedCheckbox
+                label="Business Interest"
+                childrenOptions={[
+                  "Learning Center",
+                  "Any Other Activity",
+                  "Activity Center",
+                ]}
               />
 
               {/* Password Fields with Validation */}
