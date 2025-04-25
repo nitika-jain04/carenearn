@@ -34,7 +34,7 @@ function RegisterForm() {
         <img
           src="/login.png"
           alt="Register"
-          className="rounded-full size-60 lg:rounded-none lg:size-full object-cover"
+          className="rounded-full size-60 lg:rounded-none lg:size-full"
         />
       </div>
 

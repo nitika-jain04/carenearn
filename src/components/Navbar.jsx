@@ -99,13 +99,13 @@ const Navbar = () => {
             >
               About Us
             </Link>
-            <Link
+            {/* <Link
               to="/our-vision"
               onClick={closeMenu}
               className={linkClasses("/our-vision")}
             >
               Our Vision
-            </Link>
+            </Link> */}
             {isLoggedIn && (
               <>
                 <Link
