@@ -70,7 +70,7 @@ function SeekHelp() {
         </div>
 
         <div className="bg-rose-400 rounded-2xl mx-10">
-          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl">
+          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl text-justify">
             <div>
               {/* <p className="text-justify"> */}
               We might have house help, probably an essential requirement but we
