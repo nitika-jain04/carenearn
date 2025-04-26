@@ -45,10 +45,10 @@ function FindHelp() {
             </div> */}
             <div className="flex gap-5 flex-wrap">
               {[
-                { label: "👧Child Care", value: "Child Care" },
-                { label: "🎓Child Education", value: "Child Education" },
-                { label: "👴Parents Care", value: "Parents Care" },
-                { label: "♿Special Need", value: "Special Need" },
+                { label: "👧 Child Care", value: "Child Care" },
+                { label: "🎓 Child Education", value: "Child Education" },
+                { label: "👴 Parents Care", value: "Parents Care" },
+                { label: "♿ Special Need", value: "Special Need" },
               ].map((item) => (
                 <label
                   key={item.value}
