@@ -10,7 +10,7 @@ const HomePage = () => {
         <img
           src="/home-page.jpg"
           alt="Photo"
-          className="lg:h-[80vh] md:h-[30vh] h-[20vh]  rounded-full md:rounded-none"
+          className="lg:h-[80vh] md:h-[30vh] h-[20vh]  rounded-full md:rounded-none object-cover"
         />
       </div>
 
