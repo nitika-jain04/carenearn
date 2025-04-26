@@ -31,11 +31,18 @@ function SeekHelp() {
 
   return (
     <div className="">
-      <img
-        src="/our-vision.jpg"
-        alt=""
-        className="h-60 w-[100%] rounded-b-[100px]"
-      />
+      <div className="relative">
+        <img
+          src="/our-vision.jpg"
+          alt=""
+          className="h-60 w-full object-center rounded-b-[100px]"
+        />
+        <div className="absolute top-0 left-0 w-full h-full bg-rose-500 opacity-70 rounded-b-[100px]"></div>
+
+        <div className="absolute top-[40%] left-[43%] text-white font-bold text-5xl">
+          <p>About Us</p>
+        </div>
+      </div>
 
       <div>
         <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mt-10 mb-3">
