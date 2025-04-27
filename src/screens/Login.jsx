@@ -46,7 +46,7 @@ function Login() {
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
-      <div className="lg:w-1/2 m-10 lg:m-0 flex items-center justify-center bg-yellow-200">
+      <div className="lg:w-1/2 m-10 lg:m-0 flex items-center justify-center">
         <img
           src="/login.png"
           alt=""
