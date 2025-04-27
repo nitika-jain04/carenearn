@@ -149,7 +149,7 @@ function SeekHelp() {
       </div>
 
       <div className="grid grid-rows-1 gap-10 lg:gap-20 lg:px-40 px-10">
-        <div className="flex justify-between rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10 w-1/2">
             <div>
               <p className="text-3xl font-semibold text-rose-500">
@@ -174,7 +174,7 @@ function SeekHelp() {
           </div>
         </div>
 
-        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10">
             <>
               <p className="text-3xl font-semibold text-rose-500">
@@ -199,7 +199,7 @@ function SeekHelp() {
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-3 rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10">
             <Fragment>
               <p className="text-3xl font-semibold text-rose-500">
@@ -224,7 +224,7 @@ function SeekHelp() {
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-3 rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10">
             <>
               <p className="text-3xl font-semibold text-rose-500">
