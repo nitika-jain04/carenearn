@@ -84,6 +84,7 @@ function MyProfile() {
                         disabled={!isEditing}
                         checked={purpose === option}
                         onChange={() => setPurpose(option)}
+                        className="accent-rose-500"
                       />
                       {option}
                     </label>
