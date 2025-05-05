@@ -172,6 +172,12 @@ function RegisterForm() {
             >
               Register
             </button>
+            <p
+              className="text-center text-rose-500 cursor-pointer"
+              onClick={() => navigate("/login")}
+            >
+              Already have an account?
+            </p>
           </div>
         </div>
       </div>

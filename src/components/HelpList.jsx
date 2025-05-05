@@ -4,34 +4,34 @@ import Footer from "./footer";
 
 function HelpList() {
   return (
-    <div className="w-1/2 flex flex-col gap-5">
-      <p className="font-semibold text-3xl text-rose-500 tracking-wide">
-        All List
-      </p>
+    <div className="">
+      <Navbar />
 
-      <div className="flex flex-col gap-3">
-        <div className="flex flex-col bg-rose-50 border border-rose-500 py-1 px-5 rounded-md w-3/4">
-          <p className="font-semibold text-base">Ravi Kumar</p>
-          <p className="text-sm">B.Sc. Nursing</p>
-          <p className="text-sm">📞 9874651230</p>
-        </div>
-        {/* <div className="flex flex-col bg-rose-50 border border-rose-500 py-1 px-5 rounded-md">
+      <div className="flex gap-5">
+        <img src="/find-help.png" alt="" className="w-1/2" />
+
+        <div className="w-1/2 flex flex-col gap-5 pt-10">
+          <p className="font-semibold text-3xl text-rose-500 tracking-wide">
+            All List
+          </p>
+
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col bg-rose-50 border border-rose-500 py-1 px-5 rounded-md w-3/4">
               <p className="font-semibold text-base">Ravi Kumar</p>
               <p className="text-sm">B.Sc. Nursing</p>
               <p className="text-sm">📞 9874651230</p>
             </div>
-            <div className="flex flex-col bg-rose-50 border border-rose-500 py-1 px-5 rounded-md">
-              <p className="font-semibold text-base">Ravi Kumar</p>
-              <p className="text-sm">B.Sc. Nursing</p>
-              <p className="text-sm">📞 9874651230</p>
-            </div> */}
+          </div>
+
+          <div>
+            <button className="bg-rose-500 text-white text-xl px-28 py-2 rounded-md w-fit font-medium">
+              Continue
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <button className="bg-rose-500 text-white text-xl px-28 py-2 rounded-md w-fit font-medium">
-          Continue
-        </button>
-      </div>
+      <Footer />
     </div>
   );
 }

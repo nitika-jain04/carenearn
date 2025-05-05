@@ -23,7 +23,7 @@ const HomePage = () => {
           Trusted Care for Every Child & Senior.
         </p>
         <div
-          className="text-rose-500 underline-offset-2 decoration-rose-500 underline cursor-pointer flex items-center justify-center gap-1"
+          className="text-lg text-rose-500 underline-offset-2 decoration-rose-500 underline cursor-pointer flex items-center justify-center gap-1"
           onClick={() => navigate("/about-us")}
         >
           Click here to know more about us

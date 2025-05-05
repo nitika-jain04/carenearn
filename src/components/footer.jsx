@@ -9,7 +9,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <div className="mt-10 px-10 pt-14 pb-5 bg-pink-50">
-      <div className="grid grid-cols-2 gap-16 lg:flex items-start">
+      <div className="grid grid-cols-1 gap-10 lg:flex items-start">
         <div className="lg:w-1/4 flex flex-col gap-5">
           <img src="/logo-navbar.png" alt="Logo" className="lg:w-1/2" />
           <p className="text-justify">

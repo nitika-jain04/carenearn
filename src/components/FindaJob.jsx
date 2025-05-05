@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 function FindaJob() {
+  const navigate = useNavigate();
+
   const childData = [
     { text: "Home Works", icon: "/help_job/child-ed.png" },
     { text: "Projects", icon: "/help_job/Project.png" },
@@ -49,7 +52,7 @@ function FindaJob() {
           <div className="flex gap-10">
             {childData.map((data) => {
               return (
-                <div className="bg-pink-100 rounded-md py-5 flex flex-col gap-3 items-center justify-center w-52">
+                <div className="bg-pink-100 rounded-md py-5 flex flex-col gap-3 items-center justify-center w-52 transition-all duration-200 ease-in-out border hover:border-rose-500 hover:shadow-lg">
                   <img src={data.icon} alt="" className="h-10" />
                   <p className="tracking-wide text-base font-medium text-center w-[90%] break-words whitespace-normal">
                     {data.text}
@@ -66,7 +69,7 @@ function FindaJob() {
           <div className="flex gap-10">
             {activitiesData.map((data) => {
               return (
-                <div className="bg-pink-100 rounded-md py-5 flex flex-col gap-3 items-center justify-center w-52">
+                <div className="bg-pink-100 rounded-md py-5 flex flex-col gap-3 items-center justify-center w-52 transition-all duration-200 ease-in-out border hover:border-rose-500 hover:shadow-lg">
                   <img src={data.icon} alt="" className="h-10" />
                   <p className="tracking-wide text-base font-medium text-center w-[90%] break-words whitespace-normal">
                     {data.text}
@@ -85,7 +88,7 @@ function FindaJob() {
           <div className="flex gap-10">
             {seniorsData.map((data) => {
               return (
-                <div className="bg-pink-100 rounded-md py-5 flex flex-col gap-3 items-center justify-center w-52">
+                <div className="bg-pink-100 rounded-md py-5 flex flex-col gap-3 items-center justify-center w-52 transition-all duration-200 ease-in-out border hover:border-rose-500 hover:shadow-lg">
                   <img src={data.icon} alt="" className="h-10" />
                   <p className="tracking-wide text-base font-medium text-center w-[90%] break-words whitespace-normal">
                     {data.text}
@@ -99,6 +102,7 @@ function FindaJob() {
         <div className="flex justify-center">
           <button
             type="submit"
+            onClick={() => navigate("/caretakers")}
             className="bg-rose-500 text-white text-xl px-28 py-2 rounded-md w-fit font-medium"
           >
             Continue

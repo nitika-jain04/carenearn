@@ -78,7 +78,7 @@ function SeekHelp() {
               <span className="font-semibold underline underline-offset-2 decoration-pink-500 text-pink-500">
                 David Hubel and Torsten Wiesel
               </span>
-              , Their research showed that kittens deprived of vision in one eye
+              , their research showed that kittens deprived of vision in one eye
               experienced limited development in the corresponding area of the
               brain.
             </div>
