@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -22,10 +23,14 @@ const HomePage = () => {
           Trusted Care for Every Child & Senior.
         </p>
         <div
-          className="underline-offset-2 decoration-slate-950 underline cursor-pointer"
+          className="text-rose-500 underline-offset-2 decoration-rose-500 underline cursor-pointer flex items-center justify-center gap-1"
           onClick={() => navigate("/about-us")}
         >
-          Click here to know more about us.
+          Click here to know more about us
+          <span>
+            {"  "}
+            <FaLongArrowAltRight />
+          </span>
         </div>
       </div>
     </div>

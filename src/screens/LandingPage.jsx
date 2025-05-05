@@ -7,9 +7,6 @@ const LandingPage = () => {
     <div>
       <Navbar />
       <HomePage />
-      {/* <Services />
-      <ContactUs />
-      <Footer /> */}
     </div>
   );
 };
