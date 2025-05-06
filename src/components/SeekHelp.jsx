@@ -31,11 +31,18 @@ function SeekHelp() {
 
   return (
     <div className="">
-      <img
-        src="/our-vision.jpg"
-        alt=""
-        className="h-60 w-[100%] rounded-b-[100px]"
-      />
+      <div className="relative">
+        <img
+          src="/our-vision.jpg"
+          alt=""
+          className="h-60 w-full object-center rounded-b-[100px]"
+        />
+        <div className="absolute top-0 left-0 w-full h-full bg-rose-500 opacity-70 rounded-b-[100px]"></div>
+
+        <div className="absolute top-[40%] left-[43%] text-white font-bold text-5xl">
+          <p>About Us</p>
+        </div>
+      </div>
 
       <div>
         <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mt-10 mb-3">
@@ -71,7 +78,7 @@ function SeekHelp() {
           to the cognitive behavioural well being of our child.
         </p>
         <div className="bg-rose-400 rounded-2xl mx-10">
-          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl">
+          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl text-justify">
             <div>
               {/* <p className="text-justify"> */}
               Let me quote the Nobel Laurettes{" "}
@@ -127,7 +134,7 @@ function SeekHelp() {
       </div>
 
       <div className="grid grid-rows-1 gap-10 lg:gap-20 lg:px-40 px-10">
-        <div className="flex justify-between rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10 w-1/2">
             <div>
               <p className="text-3xl font-semibold text-rose-500">
@@ -168,7 +175,7 @@ function SeekHelp() {
           </div>
         </div>
 
-        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10">
             <>
               <p className="text-3xl font-semibold text-rose-500">
@@ -213,7 +220,7 @@ function SeekHelp() {
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-3 rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10">
             <Fragment>
               <p className="text-3xl font-semibold text-rose-500">
@@ -238,7 +245,7 @@ function SeekHelp() {
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-3 rounded-xl shadow-md px-5 py-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
           <div className="flex flex-col gap-10">
             <>
               <p className="text-3xl font-semibold text-rose-500">

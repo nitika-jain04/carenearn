@@ -45,7 +45,7 @@ function Login() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row max-h-svh">
+    <div className="flex flex-col lg:flex-row min-h-screen">
       <div className="lg:w-1/2 m-10 lg:m-0 flex items-center justify-center">
         <img
           src="/login.png"
@@ -55,7 +55,7 @@ function Login() {
       </div>
 
       <div className="lg:w-1/2 flex flex-col justify-center">
-        <div className="flex flex-col justify-center mx-5 md:mx-10 lg:mx-40 lg:my-14 bg-pink-100 rounded-3xl shadow-lg">
+        <div className="flex flex-col justify-center mx-5 md:mx-10 lg:mx-40 bg-pink-100 rounded-3xl shadow-lg">
           <div className="flex gap-5 text-2xl px-10 py-5">
             <Link to="/login">
               <button
