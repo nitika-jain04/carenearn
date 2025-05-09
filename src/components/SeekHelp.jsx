@@ -168,7 +168,7 @@ function SeekHelp() {
 
           <div className="md:w-1/2 flex justify-center items-center">
             <img
-              src={images[currentImageIndex]}
+              src={activities[currentImageIndex]}
               alt={`admin-${currentImageIndex + 1}`}
               className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
             />
@@ -238,7 +238,7 @@ function SeekHelp() {
 
           <div className="md:w-1/2 flex justify-center items-center">
             <img
-              src={images[currentImageIndex]}
+              src={activities[currentImageIndex]}
               alt={`admin-${currentImageIndex + 1}`}
               className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
             />
@@ -262,7 +262,7 @@ function SeekHelp() {
 
           <div className="md:w-1/2 flex justify-center items-center">
             <img
-              src={images[currentImageIndex]}
+              src={activities[currentImageIndex]}
               alt={`admin-${currentImageIndex + 1}`}
               className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
             />
