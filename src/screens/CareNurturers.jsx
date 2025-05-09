@@ -1,8 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/footer";
+import { useNavigate } from "react-router";
 
 function CareNurturers() {
+  const navigate = useNavigate();
   const data = [
     { text: "Organise my party", icon: "/help_job/party.png" },
     {
@@ -36,6 +38,7 @@ function CareNurturers() {
         <div className="flex justify-center">
           <button
             type="submit"
+            onClick={() => navigate("/caretakers")}
             className="bg-rose-500 text-white text-xl px-28 py-2 rounded-md w-fit font-medium"
           >
             Continue
