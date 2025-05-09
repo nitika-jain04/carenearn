@@ -8,7 +8,16 @@ function SeekHelp() {
     "/admin3.webp",
     "/admin4.jpg",
     // "/admin5.jpg",
-    // "/admin6.jpg",
+    "/admin6.jpg",
+  ];
+
+  const childhelp = [
+    "/homework-help.jpg",
+    "/admin2.jpg",
+    "/admin3.webp",
+    "/admin4.jpg",
+    // "/admin5.jpg",
+    "/admin6.jpg",
   ];
 
   const activities = [
@@ -18,6 +27,15 @@ function SeekHelp() {
     "/acti5.jpg",
     "/acti3.jpg",
   ];
+
+  const senior = [
+    "/hospital.jpg",
+    "reading.jpg",
+    "/piano.jpg",
+    "/mall.jpg",
+    "/games.jpg",
+  ];
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -36,7 +54,7 @@ function SeekHelp() {
           alt=""
           className="h-60 w-full object-center rounded-b-[100px]"
         />
-        <div className="absolute top-0 left-0 w-full h-full bg-rose-500 opacity-70 rounded-b-[100px]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-rose-500 opacity-60 rounded-b-[100px]"></div>
 
         <div className="absolute top-[40%] left-[43%] text-white font-bold text-5xl">
           <p>About Us</p>
@@ -167,7 +185,7 @@ function SeekHelp() {
 
           <div className="md:w-1/2 flex justify-center items-center">
             <img
-              src={activities[currentImageIndex]}
+              src={childhelp[currentImageIndex]}
               alt={`admin-${currentImageIndex + 1}`}
               className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
             />
@@ -232,12 +250,13 @@ function SeekHelp() {
               <li>Spend time reading books and stories</li>
               <li>Engaging them in any acivity they like</li>
               <li>Tale them to mall / shopping</li>
+              <li>Play games with elders</li>
             </div>
           </div>
 
           <div className="md:w-1/2 flex justify-center items-center">
             <img
-              src={activities[currentImageIndex]}
+              src={senior[currentImageIndex]}
               alt={`admin-${currentImageIndex + 1}`}
               className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
             />
@@ -261,7 +280,7 @@ function SeekHelp() {
 
           <div className="md:w-1/2 flex justify-center items-center">
             <img
-              src={activities[currentImageIndex]}
+              src={images[currentImageIndex]}
               alt={`admin-${currentImageIndex + 1}`}
               className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
             />
