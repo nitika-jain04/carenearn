@@ -12,12 +12,11 @@ function SeekHelp() {
   ];
 
   const activities = [
-    "/acti1.jpg",
-    "/acti2.jpg",
-    "/acti3.jpg",
     "/acti4.jpg",
+    "/acti2.jpg",
+    "/acti1.jpg",
     "/acti5.jpg",
-    // "/acti6.webp",
+    "/acti3.jpg",
   ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -134,15 +133,15 @@ function SeekHelp() {
       </div>
 
       <div className="grid grid-rows-1 gap-10 lg:gap-20 lg:px-40 px-10">
-        <div className="flex justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <div className="flex flex-col gap-10 w-1/2">
+        <div className="flex flex-col lg:flex-row gap-5 justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+          <div className="flex flex-col gap-5 lg:gap-10 lg:w-1/2">
             <div>
               <p className="text-3xl font-semibold text-rose-500">
                 Child Education
               </p>
             </div>
 
-            <div className="ml-5 list-disc flex flex-col gap-5 text-xl tracking-wide">
+            <div className="ml-0 lg:ml-5 list-disc flex flex-col gap-3 lg:gap-5 text-xl tracking-wide">
               <li
                 className={`${currentImageIndex === 0 ? "font-semibold" : ""}`}
               >
@@ -175,8 +174,8 @@ function SeekHelp() {
           </div>
         </div>
 
-        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <div className="flex flex-col gap-10">
+        <div className="flex flex-col lg:flex-row gap-5 justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+          <div className="flex flex-col gap-5 lg:gap-10 lg:w-1/2">
             <>
               <p className="text-3xl font-semibold text-rose-500">
                 Activities{" "}
@@ -220,8 +219,8 @@ function SeekHelp() {
           </div>
         </div>
 
-        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <div className="flex flex-col gap-10">
+        <div className="flex flex-col lg:flex-row gap-5 justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+          <div className="flex flex-col gap-5 lg:gap-10 lg:w-1/2">
             <Fragment>
               <p className="text-3xl font-semibold text-rose-500">
                 Care of Loved Ones - The Seniors
@@ -245,8 +244,8 @@ function SeekHelp() {
           </div>
         </div>
 
-        <div className="flex gap-3 justify-between items-center rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <div className="flex flex-col gap-10">
+        <div className="flex flex-col lg:flex-row gap-5 justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
+          <div className="flex flex-col gap-5 lg:gap-10 lg:w-1/2">
             <>
               <p className="text-3xl font-semibold text-rose-500">
                 The Home Admin
