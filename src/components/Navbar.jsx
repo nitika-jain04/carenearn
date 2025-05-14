@@ -21,7 +21,7 @@ const Navbar = () => {
        ${pathname === path ? "after:w-full" : "after:w-0 hover:after:w-full"}`;
 
   const linkClasses2 = (path) =>
-    `${linkClasses(path)} ${isLoggedIn ? "visible" : "hidden"}`;
+    `${linkClasses(path)} ${isLoggedIn ? "visible" : ""}`;
 
   return (
     <div className="sticky top-0 bg-white z-50 shadow-sm">
