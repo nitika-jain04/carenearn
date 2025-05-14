@@ -44,7 +44,7 @@ function SeekHelp() {
     }, 2000); // Change image every 3 seconds
 
     return () => clearInterval(interval); // Cleanup
-  }, []);
+  });
 
   return (
     <div className="">
