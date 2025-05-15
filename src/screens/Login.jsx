@@ -168,7 +168,8 @@ function Login() {
             </div>
 
             <button
-              onClick={handleLogin}
+              // onClick={handleLogin}
+              onClick={navigate("/")}
               type="button"
               className="bg-rose-500 text-white text-xl px-28 py-2 rounded-md font-medium"
             >
