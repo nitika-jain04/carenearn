@@ -32,7 +32,7 @@ const NestedCheckbox = ({ label, childrenOptions }) => {
           type="checkbox"
           checked={checked}
           onChange={handleParentToggle}
-          className="accent-rose-500"
+          className="accent-rose-500 cursor-pointer"
         />
         {label}
       </label>
@@ -48,7 +48,7 @@ const NestedCheckbox = ({ label, childrenOptions }) => {
                 type="checkbox"
                 checked={childrenChecked[index]}
                 onChange={() => handleChildToggle(index)}
-                className="accent-rose-400"
+                className="accent-rose-400 cursor-pointer"
               />
               {child}
             </label>

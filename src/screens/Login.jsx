@@ -1,23 +1,22 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom"; // use react-router-dom
-import { login } from "../../store/actions";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const { pathname } = useLocation();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({ phone: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState({ email: "", password: "" });
 
   const validate = () => {
     let valid = true;
     const newErrors = { phone: "", password: "" };
 
-    // Phone validation
-    if (!/^[1-9][0-9]{9}$/.test(phone)) {
+    // Phone/email validation
+    if (!/^[1-9][0-9]{9}$/.test(email)) {
       newErrors.phone = "Phone number must be 10 digits and not start with 0.";
       valid = false;
     }
@@ -37,10 +36,37 @@ function Login() {
     return valid;
   };
 
-  const handleLogin = () => {
-    if (validate()) {
-      dispatch(login());
-      navigate("/");
+  const handleLogin = async () => {
+    if (!validate()) return;
+
+    try {
+      const response = await fetch(
+        "http://192.168.0.205:5001/api/careNearn/user/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            emailId: email,
+            password: password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // If API returns a token or user data, store it here
+        localStorage.setItem("token", data.token); // Optional
+        console.log("Login successful:", data);
+        navigate("/"); // Navigate to home or dashboard
+      } else {
+        alert(data.message || "Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("An error occurred. Please try again later.");
     }
   };
 
@@ -49,7 +75,7 @@ function Login() {
       <div className="lg:w-1/2 m-10 lg:m-0 flex items-center justify-center">
         <img
           src="/login.png"
-          alt=""
+          alt="login"
           className="rounded-full size-60 lg:rounded-none lg:size-full"
         />
       </div>
@@ -88,12 +114,12 @@ function Login() {
                   User Id
                 </label>
                 <input
-                  type="text"
+                  // type="text"
                   id="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Enter your phone number"
-                  className="placeholder:text-stone-400 placeholder:text-base outline-none p-1"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your phone number/email"
+                  className="placeholder:text-stone-400 placeholder:text-base outline-none p-1 autofill:bg-white bg-white"
                 />
                 {errors.phone && (
                   <span className="text-xs font-medium text-red-500">
@@ -111,14 +137,26 @@ function Login() {
                 >
                   Password
                 </label>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your password"
-                  className="placeholder:text-stone-400 placeholder:text-base outline-none p-1"
-                />
+                <div className="flex justify-between items-center">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your password"
+                    className="placeholder:text-stone-400 placeholder:text-base outline-none p-1 pr-10"
+                  />
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="cursor-pointer"
+                  >
+                    {showPassword ? (
+                      <IoMdEyeOff size={20} />
+                    ) : (
+                      <IoMdEye size={20} />
+                    )}
+                  </span>
+                </div>
                 {errors.password && (
                   <span className="text-xs font-medium text-red-500">
                     {errors.password}

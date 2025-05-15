@@ -111,16 +111,41 @@ function RegisterForm() {
                 </label>
               </div>
 
-              <NestedCheckbox label="Child Care" childrenOptions={[]} />
-              <NestedCheckbox label="Child Education" childrenOptions={[]} />
-              <NestedCheckbox label="Parents Care" childrenOptions={[]} />
+              <NestedCheckbox
+                label="Child Education"
+                childrenOptions={[
+                  "Home works",
+                  "Projects",
+                  "Exams",
+                  "Upgrade Skills",
+                  "Child care",
+                ]}
+              />
               <NestedCheckbox
                 label="Activities"
                 childrenOptions={[
-                  "Music",
-                  "Painting",
-                  "Board Games",
-                  "Creative Games",
+                  "Chess/Board Games",
+                  "Creative arts/Painting/Sculpture",
+                  "Creative Games/Lego/Builders/Writings",
+                  "Story Sessions",
+                ]}
+              />
+              <NestedCheckbox
+                label="Care for loved ones-Seniors"
+                childrenOptions={[
+                  "Take them to hospital",
+                  "Spend time reading books or stories",
+                  "Involve them in anything they like",
+                  "Take them to Shopping",
+                ]}
+              />
+
+              <NestedCheckbox
+                label="Care Nurturers"
+                childrenOptions={[
+                  "Organise my party",
+                  "Organise party games",
+                  "Food/Bakery/dessert",
                 ]}
               />
               <NestedCheckbox
