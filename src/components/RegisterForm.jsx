@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
-import NestedCheckbox from "./NestedCheckbox";
+import NestedCheckBox from "./NestedCheckBox";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../../store/actions";
 
@@ -149,7 +149,7 @@ function RegisterForm() {
         !hasUpperCase && "Password must contain at least one uppercase letter",
         !hasNumber && "Password must contain at least one number",
         !hasSpecialChar &&
-          "Password must contain at least one special character",
+        "Password must contain at least one special character",
       ].filter(Boolean),
     };
   }, []);
@@ -709,7 +709,7 @@ function RegisterForm() {
               {typeConfig.purposes
                 .filter((p) => p.categoryName === "Care Nurturers")
                 .map((purpose) => (
-                  <NestedCheckbox
+                  <NestedCheckBox
                     key={`business-${purpose.categoryName}`}
                     roleName="Business"
                     label={purpose.categoryName}
@@ -816,11 +816,10 @@ function RegisterForm() {
             <Link to="/login" className="flex-1">
               <button
                 type="button"
-                className={`w-full py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${
-                  pathname === "/login"
-                    ? "bg-white text-rose-600 shadow-sm"
-                    : "text-gray-500 hover:text-gray-800"
-                }`}
+                className={`w-full py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${pathname === "/login"
+                  ? "bg-white text-rose-600 shadow-sm"
+                  : "text-gray-500 hover:text-gray-800"
+                  }`}
               >
                 Sign In
               </button>
@@ -828,11 +827,10 @@ function RegisterForm() {
             <Link to="/register" className="flex-1">
               <button
                 type="button"
-                className={`w-full py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${
-                  pathname.startsWith("/register")
-                    ? "bg-white text-rose-600 shadow-sm"
-                    : "text-gray-500 hover:text-gray-800"
-                }`}
+                className={`w-full py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${pathname.startsWith("/register")
+                  ? "bg-white text-rose-600 shadow-sm"
+                  : "text-gray-500 hover:text-gray-800"
+                  }`}
               >
                 Register
               </button>
@@ -914,7 +912,7 @@ function RegisterForm() {
                   name="city"
                   label="City"
                   value={formData.city}
-                  onChange={() => {}}
+                  onChange={() => { }}
                   placeholder="Auto-filled City"
                   readOnly
                   error={null}
@@ -924,7 +922,7 @@ function RegisterForm() {
                   name="state"
                   label="State"
                   value={formData.state}
-                  onChange={() => {}}
+                  onChange={() => { }}
                   placeholder="Auto-filled State"
                   readOnly
                   error={null}
@@ -1049,10 +1047,9 @@ function RegisterForm() {
               className={`
                 w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl font-semibold text-white text-base
                 bg-gradient-to-r from-rose-500 to-pink-500 shadow-md shadow-rose-500/25 transition-all duration-300
-                ${
-                  isSubmitting
-                    ? "opacity-60 cursor-not-allowed"
-                    : "hover:shadow-lg hover:shadow-rose-500/35 hover:-translate-y-0.5 active:translate-y-0"
+                ${isSubmitting
+                  ? "opacity-60 cursor-not-allowed"
+                  : "hover:shadow-lg hover:shadow-rose-500/35 hover:-translate-y-0.5 active:translate-y-0"
                 }
               `}
             >
@@ -1106,9 +1103,8 @@ const InputField = ({
       placeholder={placeholder}
       required={required}
       readOnly={readOnly}
-      className={`w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 outline-none transition text-sm text-gray-800 placeholder:text-gray-400 ${
-        error ? "border-rose-500 bg-red-50/20" : ""
-      } ${readOnly ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""}`}
+      className={`w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 outline-none transition text-sm text-gray-800 placeholder:text-gray-400 ${error ? "border-rose-500 bg-red-50/20" : ""
+        } ${readOnly ? "bg-gray-100 text-gray-500 cursor-not-allowed" : ""}`}
     />
     {error && (
       <span className="text-xs text-rose-500 font-medium">
@@ -1175,9 +1171,8 @@ const PasswordField = ({
         onChange={onChange}
         placeholder={`Enter ${label.toLowerCase()}`}
         required
-        className={`w-full px-3.5 py-2.5 pr-10 rounded-xl border border-gray-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 outline-none transition text-sm text-gray-800 placeholder:text-gray-400 ${
-          error ? "border-rose-500 bg-red-50/20" : ""
-        }`}
+        className={`w-full px-3.5 py-2.5 pr-10 rounded-xl border border-gray-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 outline-none transition text-sm text-gray-800 placeholder:text-gray-400 ${error ? "border-rose-500 bg-red-50/20" : ""
+          }`}
       />
       <button
         type="button"
