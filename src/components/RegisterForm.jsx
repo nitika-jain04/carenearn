@@ -114,7 +114,9 @@ function RegisterForm() {
     status: "",
     password: "",
     confirmPassword: "",
-    userTypes: state?.selectedRoles ? [state.selectedRoles] : [],
+    userTypes: state?.selectedRoles
+      ? [typeof state.selectedRoles === "string" ? state.selectedRoles : state.selectedRoles.roleName]
+      : [],
     purposes: [],
   });
 
@@ -568,58 +570,73 @@ function RegisterForm() {
 
         console.log("Sending user data:", JSON.stringify(userData, null, 2));
 
+        // ---------------------------------------------------------------
+        // OFFLINE / DEMO MODE — Backend API call bypassed
+        // Save user to localStorage instead of hitting the backend
+        // ---------------------------------------------------------------
+
+        // Load existing registered users (or start fresh)
+        const existingUsers = JSON.parse(
+          localStorage.getItem("registeredUsers") || "[]"
+        );
+
+        // Check for duplicate phone or email
+        const duplicate = existingUsers.find(
+          (u) =>
+            u.phoneNumber === userData.phoneNumber ||
+            u.emailId === userData.emailId
+        );
+        if (duplicate) {
+          throw new Error(
+            "A user with this phone number or email already exists."
+          );
+        }
+
+        // Build the stored user record
+        const newUser = {
+          ...userData,
+          id: Date.now(), // simple unique ID
+          status: "NOT_VERIFIED",
+          imageUrl: picture ? URL.createObjectURL(picture) : null,
+        };
+
+        // Persist to localStorage
+        existingUsers.push(newUser);
+        localStorage.setItem("registeredUsers", JSON.stringify(existingUsers));
+        console.log("Registration saved locally (API bypassed):", newUser);
+
+        // Dispatch to Redux store
+        dispatch(
+          updateProfile({
+            ...userData,
+            imageUrl: newUser.imageUrl,
+          })
+        );
+
+        /*
+        // ---------------------------------------------------------------
+        // ORIGINAL BACKEND API CALL — commented out for demo/testing
+        // ---------------------------------------------------------------
         const formPayload = new FormData();
-
-        // Append the user object as JSON string
         formPayload.append("user", JSON.stringify(userData));
-
-        // Append files
-        if (aadharCard) {
-          formPayload.append("aadharCard", aadharCard);
-        }
-
-        if (addressProof) {
-          formPayload.append("addressProof", addressProof);
-        }
-
-        if (picture) {
-          formPayload.append("picture", picture);
-        }
-
-        // Log FormData contents for debugging
-        for (let [key, value] of formPayload.entries()) {
-          if (key === "user") {
-            console.log("FormData user:", value);
-          } else {
-            console.log("FormData file:", key, value.name);
-          }
-        }
+        if (aadharCard) formPayload.append("aadharCard", aadharCard);
+        if (addressProof) formPayload.append("addressProof", addressProof);
+        if (picture) formPayload.append("picture", picture);
 
         const response = await fetch(
           "http://192.168.0.205:5001/api/careNearn/user/register",
-          {
-            method: "POST",
-            body: formPayload,
-          }
+          { method: "POST", body: formPayload }
         );
-
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(errorData.message || "Registration failed");
         }
-
         const result = await response.json();
         console.log("Registration successful:", result);
+        */
 
-        // Dispatch to Redux store if needed
-        dispatch(
-          updateProfile({
-            ...userData,
-            imageUrl: picture ? URL.createObjectURL(picture) : null,
-          })
-        );
-
-        navigate("/");
+        // Navigate to login after successful registration
+        navigate("/login");
       } catch (err) {
         console.error("Registration error:", err);
         setErrors((prev) => ({
@@ -661,7 +678,11 @@ function RegisterForm() {
   const purposeSections = useMemo(
     () =>
       formData.userTypes.map((userType) => {
+        // Guard: skip if userType is not a plain string (e.g. object from router state)
+        if (!userType || typeof userType !== "string") return null;
         const typeConfig = USER_TYPES.find((t) => t.value === userType);
+        // Skip if no matching config found
+        if (!typeConfig) return null;
         const hasError = errors.purposes?.[userType];
 
         if (userType === "Business") {
@@ -735,7 +756,7 @@ function RegisterForm() {
               </p>
             )}
             {typeConfig.purposes.map((purpose) => (
-              <NestedCheckbox
+              <NestedCheckBox
                 key={`${userType}-${purpose.categoryName}`}
                 roleName={userType}
                 label={purpose.categoryName}

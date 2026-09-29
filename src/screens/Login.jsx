@@ -83,15 +83,19 @@ function Login() {
 
     try {
       // ---------------------------------------------------------------
-      // HARDCODED LOGIN LOGIC (backend API call commented out below)
+      // OFFLINE / DEMO MODE LOGIN
+      // First check hardcoded demo credentials, then check localStorage
+      // registered users.
       // ---------------------------------------------------------------
       const isPhoneMatch = loginCredential === HARDCODED_PHONE;
       const isEmailMatch = loginCredential === HARDCODED_EMAIL;
       const isPasswordMatch = password === HARDCODED_PASSWORD;
 
+      let data = null;
+
       if ((isPhoneMatch || isEmailMatch) && isPasswordMatch) {
-        // Simulate a successful response payload
-        const data = {
+        // Hardcoded demo account
+        data = {
           id: 1,
           name: "Suntech User",
           phoneNumber: HARDCODED_PHONE,
@@ -99,13 +103,43 @@ function Login() {
           userTypes: ["Care Receiver"],
           purposes: [],
         };
+      } else {
+        // Check localStorage for a registered user matching phone/email + password
+        const registeredUsers = JSON.parse(
+          localStorage.getItem("registeredUsers") || "[]"
+        );
+        const matched = registeredUsers.find(
+          (u) =>
+            (u.phoneNumber === loginCredential ||
+              u.emailId === loginCredential) &&
+            u.password === password
+        );
+        if (matched) {
+          // Normalize userTypes: backend stores as [{roleName}], login expects flat strings
+          const flatUserTypes = (matched.userTypes || []).map((t) =>
+            typeof t === "string" ? t : t.roleName
+          );
+          data = {
+            ...matched,
+            userTypes: flatUserTypes,
+          };
+        }
+      }
+
+      if (data) {
 
         // Save user data to localStorage
         localStorage.setItem("user", JSON.stringify(data));
         localStorage.setItem("loginTimestamp", String(Date.now()));
-        localStorage.removeItem("userPurposes");
         localStorage.removeItem("hasSeenPurposeWindow");
         localStorage.setItem("selectedUserType", data.userTypes[0]);
+
+        // Carry over purposes from registration (if any) so the modal pre-fills them
+        if (data.purposes && data.purposes.length > 0) {
+          localStorage.setItem("userPurposes", JSON.stringify(data.purposes));
+        } else {
+          localStorage.removeItem("userPurposes");
+        }
 
         // Dispatch redux login action
         dispatch(login());
