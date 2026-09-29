@@ -12,11 +12,11 @@ const LandingPage = () => {
   useEffect(() => {
     const hasSeenWindow = localStorage.getItem("hasSeenPurposeWindow");
     const purposes = JSON.parse(localStorage.getItem("userPurposes") || "[]");
-    const userType = localStorage.getItem("selectedUserType");
+    const userType = localStorage.getItem("selectedUserType") || "Care Receiver";
 
     if (
-      (purposes.length > 0 || !hasSeenWindow) &&
-      window.location.search.includes("fromLogin=true")
+      window.location.search.includes("fromLogin=true") &&
+      !hasSeenWindow
     ) {
       setUserPurposes(purposes);
       setSelectedUserType(userType);

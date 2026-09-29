@@ -15,6 +15,8 @@ const PurposeWindow = ({
   useEffect(() => {
     if (initialPurposes && initialPurposes.length > 0) {
       setPurposes(initialPurposes);
+    } else {
+      setIsEditing(true);
     }
   }, [initialPurposes]);
 
@@ -95,17 +97,11 @@ const PurposeWindow = ({
     try {
       setIsLoading(true);
       const storedUser = localStorage.getItem("user");
-      const user = storedUser ? JSON.parse(storedUser) : null;
-      const id = user?.id;
-
-      if (!id) {
-        alert("User ID not found. Please log in again.");
-        return;
-      }
+      const user = storedUser ? JSON.parse(storedUser) : {};
 
       // Filter out purposes with no selected items
       const filteredPurposes = purposes.filter(
-        (purpose) => purpose.items.length > 0
+        (purpose) => purpose.items && purpose.items.length > 0
       );
 
       // Extract user types from filtered purposes
@@ -117,9 +113,16 @@ const PurposeWindow = ({
       const userPayload = {
         ...user,
         purposes: filteredPurposes,
-        userTypes: updatedUserTypes,
+        userTypes: updatedUserTypes.length > 0 ? updatedUserTypes : (user?.userTypes || []),
       };
 
+      // Save updated payload to localStorage (Bypassing external backend API)
+      localStorage.setItem("user", JSON.stringify(userPayload));
+      localStorage.setItem("userPurposes", JSON.stringify(filteredPurposes));
+      console.log("Updated user interests locally (API call bypassed):", userPayload);
+
+      /*
+      // Bypassed Backend API Call
       const formData = new FormData();
       formData.append("user", JSON.stringify(userPayload));
 
@@ -138,8 +141,8 @@ const PurposeWindow = ({
 
       const result = await response.json();
       console.log(result);
+      */
 
-      localStorage.setItem("user", JSON.stringify(userPayload));
       onSave(filteredPurposes);
       setIsEditing(false);
     } catch (error) {

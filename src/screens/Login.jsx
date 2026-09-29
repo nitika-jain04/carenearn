@@ -104,6 +104,7 @@ function Login() {
         localStorage.setItem("user", JSON.stringify(data));
         localStorage.setItem("loginTimestamp", String(Date.now()));
         localStorage.removeItem("userPurposes");
+        localStorage.removeItem("hasSeenPurposeWindow");
         localStorage.setItem("selectedUserType", data.userTypes[0]);
 
         // Dispatch redux login action
