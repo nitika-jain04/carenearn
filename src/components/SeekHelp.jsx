@@ -1,78 +1,189 @@
-import React, { useEffect, useState } from "react";
-import { Fragment } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
+// ─── Reusable animated image + highlighted-list card ────────────────────────
+function ServiceCard({ title, items, images, currentIndex, onItemClick }) {
+  const [fadeKey, setFadeKey] = useState(currentIndex);
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Smooth crossfade when the index changes
+  useEffect(() => {
+    setIsVisible(false); // start fade-out
+    const timeout = setTimeout(() => {
+      setFadeKey(currentIndex); // swap image
+      setIsVisible(true); // fade-in
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, [currentIndex]);
+
+  return (
+    <div className="flex flex-col lg:flex-row gap-8 justify-between rounded-2xl shadow-lg p-8 lg:p-10 bg-white border border-rose-200 hover:shadow-xl transition-shadow duration-300">
+      {/* Left — title + list */}
+      <div className="flex flex-col gap-4 lg:gap-6 lg:w-1/2">
+        <p className="text-3xl font-bold text-rose-500">{title}</p>
+
+        <ul className="flex flex-col gap-2 text-lg tracking-wide">
+          {items.map((item, idx) => {
+            const isActive = idx === currentIndex;
+            return (
+              <li
+                key={idx}
+                onClick={() => onItemClick(idx)}
+                className={`
+                  px-4 py-2.5 rounded-lg cursor-pointer
+                  transition-all duration-400 ease-in-out select-none
+                  ${isActive
+                    ? "bg-rose-50 text-rose-600 font-semibold shadow-sm"
+                    : "text-gray-700 hover:bg-rose-50/60"
+                  }
+                `}
+              >
+                <span>{item}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      {/* Right — image with crossfade */}
+      <div className="lg:w-1/2 flex justify-center items-center relative">
+        <div className="relative w-96 lg:h-72 h-80 rounded-xl overflow-hidden shadow-md">
+          <img
+            src={images[fadeKey]}
+            alt={`${title} – ${items[fadeKey] || ""}`}
+            className={`
+              absolute inset-0 w-full h-full object-cover
+              transition-opacity duration-500 ease-in-out
+              ${isVisible ? "opacity-100" : "opacity-0"}
+            `}
+          />
+          {/* Subtle gradient overlay at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Main component ─────────────────────────────────────────────────────────
 function SeekHelp() {
-  const images = [
-    "/admin1.jpg",
-    "/admin2.jpg",
-    "/admin3.webp",
-    "/admin4.jpg",
-    // "/admin5.jpg",
-    "/admin6.jpg",
-  ];
-
   const childhelp = [
     "/homework-help.jpg",
     "/admin2.jpg",
     "/admin3.webp",
     "/admin4.jpg",
-    // "/admin5.jpg",
     "/admin6.jpg",
   ];
 
   const activities = [
     "/acti4.jpg",
     "/acti2.jpg",
-    "/acti1.jpg",
     "/acti5.jpg",
     "/acti3.jpg",
+    "/acti1.jpg",
   ];
 
   const senior = [
     "/hospital.jpg",
-    "reading.jpg",
+    "/reading.jpg",
     "/piano.jpg",
     "/mall.jpg",
     "/games.jpg",
   ];
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const adminImages = [
+    "/admin1.jpg",
+    "/admin2.jpg",
+    "/admin3.webp",
+    "/admin4.jpg",
+    "/admin6.jpg",
+  ];
 
+  const childItems = [
+    "Homework Support",
+    "Project Assistance",
+    "Exam Preparation",
+    "Skill Enhancement",
+  ];
+  const activityItems = [
+    "Chess / Board Games",
+    "Story Sessions",
+    "Creative Arts / Painting / Sculpture",
+    "Creative Games / Lego / Builders / Writings",
+    "Any Other",
+  ];
+  const seniorItems = [
+    "Take them to hospital",
+    "Spend time reading books and stories",
+    "Engaging them in any activity they like",
+    "Take them to mall / shopping",
+    "Play games with elders",
+  ];
+  const homeAdminItems = [
+    "Organise my party",
+    "Organise games & fun activities",
+    "Food / Bakery / Dessert",
+  ];
+
+  // Each card has its own independent index for auto-rotation
+  const [childIdx, setChildIdx] = useState(0);
+  const [activityIdx, setActivityIdx] = useState(0);
+  const [seniorIdx, setSeniorIdx] = useState(0);
+  const [adminIdx, setAdminIdx] = useState(0);
+
+  // Auto-rotate with staggered timing for visual variety
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % activities.length);
-    }, 2000); // Change image every 3 seconds
-
-    return () => clearInterval(interval); // Cleanup
-  });
+    const t1 = setInterval(
+      () => setChildIdx((i) => (i + 1) % childItems.length),
+      3000
+    );
+    const t2 = setInterval(
+      () => setActivityIdx((i) => (i + 1) % activityItems.length),
+      3500
+    );
+    const t3 = setInterval(
+      () => setSeniorIdx((i) => (i + 1) % seniorItems.length),
+      4000
+    );
+    const t4 = setInterval(
+      () => setAdminIdx((i) => (i + 1) % homeAdminItems.length),
+      3200
+    );
+    return () => {
+      clearInterval(t1);
+      clearInterval(t2);
+      clearInterval(t3);
+      clearInterval(t4);
+    };
+  }, []);
 
   return (
-    <div className="">
+    <div>
+      {/* ── Hero Banner ────────────────────────────────────────────── */}
       <div className="relative">
         <img
           src="/our-vision.jpg"
-          alt=""
-          className="h-60 w-full object-center rounded-b-[100px]"
+          alt="About Us Banner"
+          className="h-60 w-full object-cover object-center rounded-b-[100px]"
         />
-        <div className="absolute top-0 left-0 w-full h-full bg-rose-500 opacity-60 rounded-b-[100px]"></div>
-
-        <div className="absolute top-[40%] left-[43%] text-white font-bold text-5xl">
-          <p>About Us</p>
+        <div className="absolute inset-0 bg-gradient-to-r from-rose-600/70 to-pink-500/60 rounded-b-[100px]" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-white font-bold text-5xl md:text-6xl drop-shadow-lg">
+            About Us
+          </h1>
         </div>
       </div>
 
-      <div>
-        <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mt-10 mb-3">
+      {/* ── Our Mission ────────────────────────────────────────────── */}
+      <section className="mt-12 mb-8">
+        <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mb-3">
           Our Mission
         </p>
-
         <div className="flex justify-center">
-          <div className="w-20 h-1 bg-rose-500 rounded-full mb-6"></div>
+          <div className="w-20 h-1 bg-rose-500 rounded-full mb-6" />
         </div>
-
-        <div className="bg-rose-400 rounded-2xl mx-10">
+        <div className="bg-rose-400 rounded-2xl mx-6 md:mx-10">
           <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl text-justify">
-            Carenearn is about creating a platform a symbiotic relations, where
+            Carenearn is about creating a platform of symbiotic relations, where
             the emptiness of the elders who are still active and have depth of
             knowledge and experience, the students for gig work and relatively
             free but highly educated people to contribute to needy families,
@@ -80,212 +191,114 @@ function SeekHelp() {
             ways.
           </div>
         </div>
-      </div>
+      </section>
 
-      <div>
-        <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mt-10 mb-3">
-          Why careNearn?
+      {/* ── Why CareNearn ──────────────────────────────────────────── */}
+      <section className="mb-8">
+        <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mb-3">
+          Why CareNearn?
         </p>
         <div className="flex justify-center">
-          <div className="w-20 h-1 bg-rose-500 rounded-full mb-6"></div>
+          <div className="w-20 h-1 bg-rose-500 rounded-full mb-6" />
         </div>
-        <p className="px-20 pb-10 text-lg">
+        <p className="px-6 md:px-20 pb-8 text-lg text-gray-700">
           We might have house help, probably an essential requirement but we are
-          never sure if there are kind to our loved ones or is she contributiong
-          to the cognitive behavioural well being of our child.
+          never sure if they are kind to our loved ones or if they are
+          contributing to the cognitive behavioural well being of our child.
         </p>
-        <div className="bg-rose-400 rounded-2xl mx-10">
-          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl text-justify">
-            <div>
-              {/* <p className="text-justify"> */}
-              Let me quote the Nobel Laurettes{" "}
-              <span className="font-semibold underline underline-offset-2 decoration-pink-500 text-pink-500">
-                David Hubel and Torsten Wiesel
-              </span>
-              , their research showed that kittens deprived of vision in one eye
-              experienced limited development in the corresponding area of the
-              brain.
-            </div>
+        <div className="bg-rose-400 rounded-2xl mx-6 md:mx-10">
+          <div className="bg-pink-100 ml-4 py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl text-justify">
+            Let me quote the Nobel Laureates{" "}
+            <span className="font-semibold underline underline-offset-4 decoration-2 decoration-pink-500 text-pink-600">
+              David Hubel and Torsten Wiesel
+            </span>
+            , their research showed that kittens deprived of vision in one eye
+            experienced limited development in the corresponding area of the
+            brain.
           </div>
         </div>
 
-        <div className="px-20 text-lg py-5">
+        <p className="px-6 md:px-20 text-lg py-5 text-gray-700">
           This experiment shows the effect of providing children with
           stimulating experiences nurtures their cognitive abilities.
+        </p>
+      </section>
+
+      {/* ── Brain Architecture Box ─────────────────────────────────── */}
+      <div className="bg-rose-400 rounded-2xl mx-6 md:mx-10 mb-8">
+        <div className="bg-pink-100 ml-4 flex flex-col py-10 px-6 text-base lg:text-lg tracking-wide rounded-2xl">
+          <p className="font-semibold text-lg mb-4">
+            Building Brain Architecture in Early Childhood:
+          </p>
+          <ul className="space-y-2 list-disc list-inside text-gray-800">
+            <li>
+              Over <strong>1 million</strong> new neural connections are formed
+              every second in the early years.
+            </li>
+            <li>
+              This rapid synapse formation supports high brain plasticity —
+              crucial for learning.
+            </li>
+            <li>
+              Stimulating environments enhance both cognitive development and
+              emotional regulation.
+            </li>
+            <li>
+              Non-vibrant surroundings may lead to impaired connectivity and
+              learning difficulties.
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div className="bg-rose-400 rounded-2xl mx-10">
-        <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl">
-          <div>
-            <span className="font-semibold">
-              Building Brain Architecture in Early Childhood:
-            </span>{" "}
-            <br></br>
-            <br></br>• Over 1 million new neural connections are formed every
-            second in the early years.<br></br>• This rapid synapse formation
-            supports high brain plasticity - crucial for learning. <br></br>•
-            Stimulating environments are enhance both cognitive development and
-            emotional regulation.
-            <br></br>• Non-vibrant surroundings may lead to impaired
-            connectivity and learning difficulties.
-          </div>
-        </div>
-      </div>
-
-      <div className="px-20 mt-10 text-lg">
-        {" "}
-        We at carenearn intend to enhance the life of our child by giving a
+      <p className="px-6 md:px-20 text-lg text-gray-700 mb-12">
+        We at CareNearn intend to enhance the life of our children by giving
         vibrant interaction which may include painting, story telling, building
-        blocks and many activities by A story read to our parents or taking them
+        blocks and many activities. A story read to our parents or taking them
         to a mall may alleviate their mood and thus make a happier home as well
-        give some breathing space to you!
-      </div>
-
-      <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mt-10 mb-3">
-        Seek Help
+        as give some breathing space to you!
       </p>
 
+      {/* ── Seek Help – Service Cards ─────────────────────────────── */}
+      <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mb-3">
+        Seek Help
+      </p>
       <div className="flex justify-center">
-        <div className="w-20 h-1 bg-rose-500 rounded-full mb-6"></div>
+        <div className="w-20 h-1 bg-rose-500 rounded-full mb-8" />
       </div>
 
-      <div className="grid grid-rows-1 gap-10 lg:gap-20 lg:px-40 px-10">
-        <div className="flex flex-col lg:flex-row gap-5 justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <div className="flex flex-col gap-5 lg:gap-10 lg:w-1/2">
-            <div>
-              <p className="text-3xl font-semibold text-rose-500">
-                Child Education
-              </p>
-            </div>
+      <div className="grid grid-rows-1 gap-10 lg:gap-16 lg:px-20 px-6 md:px-10 pb-4">
+        <ServiceCard
+          title="Child Education"
+          items={childItems}
+          images={childhelp}
+          currentIndex={childIdx}
+          onItemClick={setChildIdx}
+        />
 
-            <div className="ml-0 lg:ml-5 list-disc flex flex-col gap-3 lg:gap-5 text-xl tracking-wide">
-              <li
-                className={`${currentImageIndex === 0 ? "font-semibold" : ""}`}
-              >
-                Homework Support
-              </li>
-              <li
-                className={`${currentImageIndex === 1 ? "font-semibold" : ""}`}
-              >
-                Project Assistance
-              </li>
-              <li
-                className={`${currentImageIndex === 2 ? "font-semibold" : ""}`}
-              >
-                Exam Preparation
-              </li>
-              <li
-                className={`${currentImageIndex === 3 ? "font-semibold" : ""}`}
-              >
-                Skill Enhancement
-              </li>
-            </div>
-          </div>
+        <ServiceCard
+          title="Activities"
+          items={activityItems}
+          images={activities}
+          currentIndex={activityIdx}
+          onItemClick={setActivityIdx}
+        />
 
-          <div className="md:w-1/2 flex justify-center items-center">
-            <img
-              src={childhelp[currentImageIndex]}
-              alt={`admin-${currentImageIndex + 1}`}
-              className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
-            />
-          </div>
-        </div>
+        <ServiceCard
+          title="Care of Loved Ones – The Seniors"
+          items={seniorItems}
+          images={senior}
+          currentIndex={seniorIdx}
+          onItemClick={setSeniorIdx}
+        />
 
-        <div className="flex flex-col lg:flex-row gap-5 justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <div className="flex flex-col gap-5 lg:gap-10 lg:w-1/2">
-            <>
-              <p className="text-3xl font-semibold text-rose-500">
-                Activities{" "}
-              </p>
-            </>
-            <div className="ml-5 list-disc flex flex-col gap-5 text-xl tracking-wide">
-              <li
-                className={`${currentImageIndex === 0 ? "font-semibold" : ""}`}
-              >
-                Chess / Board Games
-              </li>
-              <li
-                className={`${currentImageIndex === 1 ? "font-semibold" : ""}`}
-              >
-                Story Sessions
-              </li>
-              <li
-                className={`${currentImageIndex === 2 ? "font-semibold" : ""}`}
-              >
-                Any Other
-              </li>
-              <li
-                className={`${currentImageIndex === 3 ? "font-semibold" : ""}`}
-              >
-                Creative Arts / Painting / Sculpture
-              </li>
-              <li
-                className={`${currentImageIndex === 4 ? "font-semibold" : ""}`}
-              >
-                Creative Games / Lego / Builders / Writings
-              </li>
-            </div>
-          </div>
-
-          <div className="md:w-1/2 flex justify-center items-center">
-            <img
-              src={activities[currentImageIndex]}
-              alt={`admin-${currentImageIndex + 1}`}
-              className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-5 justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <div className="flex flex-col gap-5 lg:gap-10 lg:w-1/2">
-            <Fragment>
-              <p className="text-3xl font-semibold text-rose-500">
-                Care of Loved Ones - The Seniors
-              </p>
-            </Fragment>
-
-            <div className="ml-5 list-disc flex flex-col gap-5 text-xl tracking-wide">
-              <li>Take them to hospital</li>
-              <li>Spend time reading books and stories</li>
-              <li>Engaging them in any acivity they like</li>
-              <li>Tale them to mall / shopping</li>
-              <li>Play games with elders</li>
-            </div>
-          </div>
-
-          <div className="md:w-1/2 flex justify-center items-center">
-            <img
-              src={senior[currentImageIndex]}
-              alt={`admin-${currentImageIndex + 1}`}
-              className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-5 justify-between rounded-xl shadow-md p-10 transition-all duration-200 ease-in-out bg-white border hover:bg-rose-100 border-rose-500 hover:shadow-lg">
-          <div className="flex flex-col gap-5 lg:gap-10 lg:w-1/2">
-            <>
-              <p className="text-3xl font-semibold text-rose-500">
-                The Home Admin
-              </p>
-            </>
-
-            <div className="ml-5 list-disc flex flex-col gap-5 text-xl tracking-wide">
-              <li>Organise my party</li>
-              <li>Organise games & fun activities</li>
-              <li>Food / Bakery / Dessert</li>
-            </div>
-          </div>
-
-          <div className="md:w-1/2 flex justify-center items-center">
-            <img
-              src={images[currentImageIndex]}
-              alt={`admin-${currentImageIndex + 1}`}
-              className="rounded-lg shadow-md lg:w-96 lg:h-72 w-52 h-80 object-cover transition-all duration-500"
-            />
-          </div>
-        </div>
+        <ServiceCard
+          title="The Home Admin"
+          items={homeAdminItems}
+          images={adminImages}
+          currentIndex={adminIdx}
+          onItemClick={setAdminIdx}
+        />
       </div>
     </div>
   );

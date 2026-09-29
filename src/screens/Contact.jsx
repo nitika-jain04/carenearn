@@ -5,10 +5,12 @@ import Footer from "../components/footer";
 
 function Contact() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
 
-      <ContactUs />
+      <main className="flex-grow">
+        <ContactUs />
+      </main>
 
       <Footer />
     </div>

@@ -11,7 +11,7 @@ const Footer = () => {
     <div className="mt-10 px-10 pt-14 pb-5 bg-pink-50">
       <div className="grid grid-cols-1 gap-10 lg:flex items-start">
         <div className="lg:w-1/4 flex flex-col gap-5">
-          <img src="/logo-navbar.png" alt="Logo" className="lg:w-1/2" />
+          <img src="/logo-navbar.png" alt="Logo" className="w-fit h-16" />
           <p className="text-justify">
             CareNearn is a trusted Indian platform offering compassionate care
             and support for children and individuals with special needs.
@@ -78,7 +78,7 @@ const Footer = () => {
       {/* <hr className="text-black" /> */}
 
       <p className="text-center pt-10 font-medium text-sm">
-        &copy; 2025 CareNearn. All Rights Reserved | Powered by CareNearn India
+        &copy; 2026 CareNearn. All Rights Reserved | Powered by CareNearn India
         Pvt. Ltd.
       </p>
     </div>

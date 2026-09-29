@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import Contact from "./screens/Contact";
 import LandingPage from "./screens/LandingPage";
 import OurVision from "./screens/OurVision";
@@ -13,26 +13,47 @@ import { Provider } from "react-redux";
 import store from "../store/store";
 import RegisterPage from "./components/RegisterPage";
 import RegisterForm from "./components/RegisterForm";
+import AdminPage from "./screens/AdminPage";
+import UserDetails from "./screens/UserDetails";
+import ScrollToTop from "./components/ScrollToTop";
+
+// Root layout that wraps all routes — ensures scroll-to-top on every navigation
+function RootLayout() {
+  return (
+    <>
+      <ScrollToTop />
+      <Outlet />
+    </>
+  );
+}
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <LandingPage />,
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <LandingPage />,
+      },
+      {
+        path: "/contact-us",
+        element: <Contact />,
+      },
+      { path: "/about-us", element: <About /> },
+      { path: "/find-help", element: <FindHelp /> },
+      { path: "/find-job", element: <FindJob /> },
+      { path: "/care-nurturers", element: <CareNurturers /> },
+      { path: "/my-profile", element: <MyProfile /> },
+      { path: "/login", element: <Login /> },
+      { path: "/register", element: <RegisterPage /> },
+      { path: "/register/register-form", element: <RegisterForm /> },
+      { path: "/caretakers", element: <HelpList /> },
+      { path: "/admin", element: <AdminPage /> },
+      { path: "/admin/user-details", element: <UserDetails /> },
+      // { path: "/admin/contact-details", element: <ContactDetails /> },
+      // { path: "/admin/booking-details", element: <BookingDetails /> },
+    ],
   },
-  {
-    path: "/contact-us",
-    element: <Contact />,
-  },
-  { path: "/our-vision", element: <OurVision /> },
-  { path: "/about-us", element: <About /> },
-  { path: "/find-help", element: <FindHelp /> },
-  { path: "/find-job", element: <FindJob /> },
-  { path: "/care-nurturers", element: <CareNurturers /> },
-  { path: "/my-profile", element: <MyProfile /> },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <RegisterPage /> },
-  { path: "/register/register-form", element: <RegisterForm /> },
-  { path: "/caretakers", element: <HelpList /> },
 ]);
 
 function App() {
