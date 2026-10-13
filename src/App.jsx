@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       { path: "/find-job", element: <FindJob /> },
       { path: "/care-nurturers", element: <CareNurturers /> },
       { path: "/my-profile", element: <MyProfile /> },
-      { path: "/login", element: <Login /> },
+      { path: "/login", element: <RegisterPage /> },
       { path: "/register", element: <RegisterPage /> },
       { path: "/register/register-form", element: <RegisterForm /> },
       { path: "/caretakers", element: <HelpList /> },

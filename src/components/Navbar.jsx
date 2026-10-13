@@ -144,20 +144,18 @@ const Navbar = () => {
 
   const desktopLinkClasses = (path) => {
     const isActive = pathname === path;
-    return `relative px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-colors duration-150 ${
-      isActive
-        ? "text-rose-600 bg-rose-50/80 shadow-xs"
-        : "text-gray-700 hover:text-rose-600 hover:bg-slate-50"
-    }`;
+    return `relative px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-colors duration-150 ${isActive
+      ? "text-rose-600 bg-rose-50/80 shadow-xs"
+      : "text-gray-700 hover:text-rose-600 hover:bg-slate-50"
+      }`;
   };
 
   const mobileLinkClasses = (path) => {
     const isActive = pathname === path;
-    return `flex items-center gap-3.5 px-4 py-3 rounded-2xl text-sm font-bold transition-all duration-150 ${
-      isActive
-        ? "bg-rose-50 text-rose-600 border-l-4 border-rose-500 shadow-xs"
-        : "text-gray-800 hover:bg-slate-50 hover:text-rose-600"
-    }`;
+    return `flex items-center gap-3.5 px-4 py-3 rounded-2xl text-sm font-bold transition-all duration-150 ${isActive
+      ? "bg-rose-50 text-rose-600 border-l-4 border-rose-500 shadow-xs"
+      : "text-gray-800 hover:bg-slate-50 hover:text-rose-600"
+      }`;
   };
 
   // Visibility logic — fallback to showing links if userType is empty or null
@@ -175,8 +173,8 @@ const Navbar = () => {
   // Formatted display name for user profile card
   const userNameDisplay = userData
     ? [userData.firstName, userData.lastName].filter(Boolean).join(" ") ||
-      userData.email ||
-      "Logged User"
+    userData.email ||
+    "Logged User"
     : "User Account";
 
   return (
@@ -219,38 +217,35 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="lg:flex gap-2 items-center hidden">
+        <nav className="lg:flex items-center hidden">
           <Link to="/" className={desktopLinkClasses("/")}>
             Home
           </Link>
 
-          <Link to="/about-us" className={desktopLinkClasses("/about-us")}>
-            About Us
-          </Link>
-
           {shouldShowFindHelp && (
             <Link to="/find-help" className={desktopLinkClasses("/find-help")}>
-              Find Help
+              Find Care
             </Link>
           )}
 
           {shouldShowFindJob && (
             <Link to="/find-job" className={desktopLinkClasses("/find-job")}>
-              Find a Job
+              Find Opportunities
             </Link>
           )}
 
-          {shouldShowCareNurturers && (
-            <Link
-              to="/care-nurturers"
-              className={desktopLinkClasses("/care-nurturers")}
-            >
+          {/* {shouldShowCareNurturers && (
+            <Link to="/care-nurturers" className={desktopLinkClasses("/care-nurturers")}>
               Care Nurturers
             </Link>
-          )}
+          )} */}
+
+          <Link to="/about-us" className={desktopLinkClasses("/about-us")}>
+            About Us
+          </Link>
 
           <Link to="/contact-us" className={desktopLinkClasses("/contact-us")}>
-            Contact Us
+            Contact
           </Link>
         </nav>
 
@@ -269,11 +264,10 @@ const Navbar = () => {
                 <span>{isAdmin ? "ADMIN" : userType || "Profile"}</span>
                 <FaChevronDown
                   size={9}
-                  className={`text-gray-400 transition-transform duration-200 ${
-                    profileDropdownOpen
-                      ? "transform rotate-180 text-rose-500"
-                      : ""
-                  }`}
+                  className={`text-gray-400 transition-transform duration-200 ${profileDropdownOpen
+                    ? "transform rotate-180 text-rose-500"
+                    : ""
+                    }`}
                 />
               </button>
 
@@ -295,11 +289,10 @@ const Navbar = () => {
                         </span>
                         <FaChevronDown
                           size={10}
-                          className={`transition-transform ${
-                            showUserTypesDropdown
-                              ? "transform rotate-180 text-rose-500"
-                              : ""
-                          }`}
+                          className={`transition-transform ${showUserTypesDropdown
+                            ? "transform rotate-180 text-rose-500"
+                            : ""
+                            }`}
                         />
                       </button>
 
@@ -310,11 +303,10 @@ const Navbar = () => {
                               type="button"
                               key={type}
                               onClick={() => handleProfileTypeChange(type)}
-                              className={`flex items-center justify-between w-full text-left px-5 py-2 text-xs font-semibold ${
-                                userType === type
-                                  ? "text-rose-600 bg-rose-100/60"
-                                  : "text-gray-600 hover:bg-rose-50 hover:text-rose-600"
-                              }`}
+                              className={`flex items-center justify-between w-full text-left px-5 py-2 text-xs font-semibold ${userType === type
+                                ? "text-rose-600 bg-rose-100/60"
+                                : "text-gray-600 hover:bg-rose-50 hover:text-rose-600"
+                                }`}
                             >
                               <span>{type}</span>
                               {userType === type && <FaCheck className="text-rose-600 text-[10px]" />}
@@ -350,7 +342,7 @@ const Navbar = () => {
               )}
             </div>
           ) : (
-            <Link to="/login">
+            <Link to="/register?mode=signin">
               <button
                 type="button"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-2xl font-bold text-white text-sm bg-gradient-to-r from-rose-500 to-pink-500 shadow-md shadow-rose-500/25 hover:shadow-lg hover:shadow-rose-500/35 hover:scale-105 active:scale-100 transition-all duration-200"
@@ -443,11 +435,10 @@ const Navbar = () => {
                               key={type}
                               type="button"
                               onClick={() => handleProfileTypeChange(type)}
-                              className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                                userType === type
-                                  ? "bg-rose-500 text-white shadow-xs"
-                                  : "bg-white text-gray-700 hover:bg-rose-50 hover:text-rose-600 border border-gray-100"
-                              }`}
+                              className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${userType === type
+                                ? "bg-rose-500 text-white shadow-xs"
+                                : "bg-white text-gray-700 hover:bg-rose-50 hover:text-rose-600 border border-gray-100"
+                                }`}
                             >
                               <span>{type}</span>
                               {userType === type && <FaCheck className="text-white text-xs" />}
@@ -490,7 +481,7 @@ const Navbar = () => {
                       className={mobileLinkClasses("/find-help")}
                     >
                       <FiSearch className="w-5 h-5 text-rose-500" />
-                      <span>Find Help</span>
+                      <span>Find Care</span>
                     </Link>
                   )}
 
@@ -501,18 +492,7 @@ const Navbar = () => {
                       className={mobileLinkClasses("/find-job")}
                     >
                       <FiBriefcase className="w-5 h-5 text-rose-500" />
-                      <span>Find a Job</span>
-                    </Link>
-                  )}
-
-                  {shouldShowCareNurturers && (
-                    <Link
-                      to="/care-nurturers"
-                      onClick={closeMenu}
-                      className={mobileLinkClasses("/care-nurturers")}
-                    >
-                      <FiHeart className="w-5 h-5 text-rose-500" />
-                      <span>Care Nurturers</span>
+                      <span>Find Opportunity</span>
                     </Link>
                   )}
 
@@ -551,7 +531,7 @@ const Navbar = () => {
                   </>
                 ) : (
                   <Link
-                    to="/login"
+                    to="/register?mode=signin"
                     onClick={closeMenu}
                     className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl font-bold text-white text-sm bg-gradient-to-r from-rose-500 to-pink-500 shadow-md shadow-rose-500/25 active:scale-[0.98] transition"
                   >

@@ -173,91 +173,68 @@ function SeekHelp() {
         </div>
       </div>
 
-      {/* ── Our Mission ────────────────────────────────────────────── */}
-      <section className="mt-12 mb-8">
-        <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mb-3">
-          Our Mission
-        </p>
-        <div className="flex justify-center">
-          <div className="w-20 h-1 bg-rose-500 rounded-full mb-6" />
-        </div>
-        <div className="bg-rose-400 rounded-2xl mx-6 md:mx-10">
-          <div className="bg-pink-100 ml-4 flex flex-col py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl text-justify">
-            Carenearn is about creating a platform of symbiotic relations, where
-            the emptiness of the elders who are still active and have depth of
-            knowledge and experience, the students for gig work and relatively
-            free but highly educated people to contribute to needy families,
-            with kids or elders to be looked after, in creative and meaningful
-            ways.
-          </div>
-        </div>
-      </section>
-
-      {/* ── Why CareNearn ──────────────────────────────────────────── */}
-      <section className="mb-8">
-        <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mb-3">
-          Why CareNearn?
-        </p>
-        <div className="flex justify-center">
-          <div className="w-20 h-1 bg-rose-500 rounded-full mb-6" />
-        </div>
-        <p className="px-6 md:px-20 pb-8 text-lg text-gray-700">
-          We might have house help, probably an essential requirement but we are
-          never sure if they are kind to our loved ones or if they are
-          contributing to the cognitive behavioural well being of our child.
-        </p>
-        <div className="bg-rose-400 rounded-2xl mx-6 md:mx-10">
-          <div className="bg-pink-100 ml-4 py-10 px-5 text-base lg:text-lg tracking-wide rounded-2xl text-justify">
-            Let me quote the Nobel Laureates{" "}
-            <span className="font-semibold underline underline-offset-4 decoration-2 decoration-pink-500 text-pink-600">
-              David Hubel and Torsten Wiesel
+      {/* ── Research & Foundation ────────────────────────────────────────────── */}
+      <section className="max-w-5xl mx-auto px-6 sm:px-10 py-12 sm:py-16">
+        {/* Quote */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <h2 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug tracking-tight">
+            “Early experiences shape the brain.{" "}
+            <span className="text-rose-500 block sm:inline">
+              Meaningful relationships shape the experience.”
             </span>
-            , their research showed that kittens deprived of vision in one eye
-            experienced limited development in the corresponding area of the
-            brain.
+          </h2>
+          <div className="flex justify-center mt-5">
+            <div className="w-16 h-1 bg-rose-500 rounded-full" />
           </div>
         </div>
 
-        <p className="px-6 md:px-20 text-lg py-5 text-gray-700">
-          This experiment shows the effect of providing children with
-          stimulating experiences nurtures their cognitive abilities.
-        </p>
-      </section>
+        {/* Research Highlights Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-4">
+          {/* Harvard Research */}
+          <div className="bg-[#fdf2ee] border border-rose-200/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-rose-500">
+                Early Development
+              </span>
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed mt-3">
+                Harvard research highlights how early experiences and responsive relationships with caregivers help build the foundations for lifelong learning, behaviour, health and well-being.
+              </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-rose-200/60">
+              <a
+                href="https://www.harvard.edu/in-focus/early-development/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs sm:text-sm font-semibold text-rose-600 hover:text-rose-700 underline underline-offset-2 break-all"
+              >
+                https://www.harvard.edu/in-focus/early-development/
+              </a>
+            </div>
+          </div>
 
-      {/* ── Brain Architecture Box ─────────────────────────────────── */}
-      <div className="bg-rose-400 rounded-2xl mx-6 md:mx-10 mb-8">
-        <div className="bg-pink-100 ml-4 flex flex-col py-10 px-6 text-base lg:text-lg tracking-wide rounded-2xl">
-          <p className="font-semibold text-lg mb-4">
-            Building Brain Architecture in Early Childhood:
-          </p>
-          <ul className="space-y-2 list-disc list-inside text-gray-800">
-            <li>
-              Over <strong>1 million</strong> new neural connections are formed
-              every second in the early years.
-            </li>
-            <li>
-              This rapid synapse formation supports high brain plasticity —
-              crucial for learning.
-            </li>
-            <li>
-              Stimulating environments enhance both cognitive development and
-              emotional regulation.
-            </li>
-            <li>
-              Non-vibrant surroundings may lead to impaired connectivity and
-              learning difficulties.
-            </li>
-          </ul>
+          {/* Ageing and Society Research */}
+          <div className="bg-[#edf7f6] border border-teal-200/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-teal-700">
+                Social Engagement
+              </span>
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed mt-3">
+                Meaningful social engagement brings more than happiness — it creates purpose, connection and a sense of belonging, helping older adults stay socially and emotionally engaged as they age.
+              </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-teal-200/60">
+              <a
+                href="https://www.cambridge.org/core/journals/ageing-and-society"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs sm:text-sm font-semibold text-teal-700 hover:text-teal-800 underline underline-offset-2 break-all"
+              >
+                https://www.cambridge.org/core/journals/ageing-and-society
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <p className="px-6 md:px-20 text-lg text-gray-700 mb-12">
-        We at CareNearn intend to enhance the life of our children by giving
-        vibrant interaction which may include painting, story telling, building
-        blocks and many activities. A story read to our parents or taking them
-        to a mall may alleviate their mood and thus make a happier home as well
-        as give some breathing space to you!
-      </p>
+      </section>
 
       {/* ── Seek Help – Service Cards ─────────────────────────────── */}
       <p className="text-center font-bold text-4xl text-rose-500 tracking-wide mb-3">

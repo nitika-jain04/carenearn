@@ -348,7 +348,7 @@ function Login() {
                 Sign In
               </button>
             </Link>
-            <Link to="/register/register-form" className="flex-1">
+            <Link to="/register" className="flex-1">
               <button
                 type="button"
                 className={`w-full py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${
@@ -469,7 +469,7 @@ function Login() {
             <p className="text-center text-sm text-gray-500 pt-2">
               Don't have an account?{" "}
               <Link
-                to="/register/register-form"
+                to="/register"
                 className="font-semibold text-rose-600 hover:underline underline-offset-2"
               >
                 Create Account
