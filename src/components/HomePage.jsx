@@ -92,7 +92,7 @@ const HomePage = () => {
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 mt-1 sm:mt-2">
               <button
-                onClick={() => navigate("/find-help")}
+                onClick={() => navigate("/find-care")}
                 className="flex items-center gap-2 px-7 py-3.5 rounded-full bg-rose-500 text-white font-bold text-sm hover:bg-rose-600 active:scale-95 transition-all duration-200 shadow-lg shadow-rose-500/25"
               >
                 Find Care <FaArrowRight className="text-xs" />
@@ -122,6 +122,7 @@ const HomePage = () => {
             >
               <img
                 src="/hero-photo.jpg"
+                // src="/hero-photo.png"
                 alt="Three generations of an Indian family — mother, daughter and grandmother — drawing together warmly"
                 className="w-full max-w-[660px] h-auto object-cover object-center max-h-[420px] sm:max-h-[470px] lg:max-h-[510px] select-none pointer-events-none"
               />
@@ -174,7 +175,7 @@ const HomePage = () => {
 
               <div className="pt-1.5 sm:pt-2">
                 <button
-                  onClick={() => navigate("/find-help")}
+                  onClick={() => navigate("/find-care")}
                   className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-semibold text-xs sm:text-sm shadow-md shadow-rose-500/20 transition-all duration-200"
                 >
                   Find Care <FaArrowRight className="text-[11px]" />

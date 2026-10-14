@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: "/about-us", element: <About /> },
-      { path: "/find-help", element: <FindHelp /> },
+      { path: "/find-care", element: <FindHelp /> },
       { path: "/find-job", element: <FindJob /> },
       { path: "/care-nurturers", element: <CareNurturers /> },
       { path: "/my-profile", element: <MyProfile /> },

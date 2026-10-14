@@ -50,35 +50,35 @@ function FindJob() {
     {
       title: "Games & Puzzles",
       desc: "Chess, board games, strategy and problem-solving.",
-      image: "/opp_c_chess.png",
+      image: "/find_opp/01_chess.avif",
       badgeIcon: <IoExtensionPuzzle />,
       badgeBg: "bg-rose-100 text-rose-500",
     },
     {
       title: "Art & Creativity",
       desc: "Painting, drawing, craft, sculpture and creative expression.",
-      image: "/opp_c_art.png",
+      image: "/find_opp/02_art_painting.avif",
       badgeIcon: <FaPalette />,
       badgeBg: "bg-amber-100 text-amber-700",
     },
     {
       title: "Build & Create",
       desc: "LEGO, making, writing and hands-on projects.",
-      image: "/opp_c_build.png",
+      image: "/find_opp/03_lego_build.avif",
       badgeIcon: <FaCubes />,
       badgeBg: "bg-emerald-100 text-emerald-700",
     },
     {
       title: "Stories & Reading",
       desc: "Reading together, storytelling and imaginative conversations.",
-      image: "/opp_c_reading.png",
+      image: "/find_opp/04_reading_girl.avif",
       badgeIcon: <MdOutlineMenuBook />,
       badgeBg: "bg-purple-100 text-purple-700",
     },
     {
       title: "Explore, Learn & Discover",
       desc: "Science, nature, museums, interesting conversations and projects.",
-      image: "/opp_c_explore.png",
+      image: "/find_opp/05_magnifier_nature.avif",
       badgeIcon: <FaFlask />,
       badgeBg: "bg-cyan-100 text-cyan-700",
     },
@@ -88,35 +88,35 @@ function FindJob() {
     {
       title: "Appointments & Hospital Visits",
       desc: "Accompany them to appointments and help with everyday tasks.",
-      image: "/opp_s_hospital.png",
+      image: "/find_opp/01_senior_conversation.avif",
       badgeIcon: <FaHospital />,
       badgeBg: "bg-emerald-100 text-emerald-700",
     },
     {
       title: "Reading & Conversation",
       desc: "Read together, talk, reminisce, discuss interests or simply spend time.",
-      image: "/opp_s_reading.png",
+      image: "/find_opp/08_grandmother_reading.avif",
       badgeIcon: <MdOutlineMenuBook />,
       badgeBg: "bg-rose-100 text-rose-600",
     },
     {
       title: "Everyday Companionship",
       desc: "Share a meal, take a walk, play a game or join them in activities they enjoy.",
-      image: "/opp_s_walk.png",
+      image: "/find_opp/12_elderly_couple_walk_2.avif",
       badgeIcon: <FaHeart />,
       badgeBg: "bg-amber-100 text-amber-600",
     },
     {
       title: "Shopping & Outings",
       desc: "Accompany them for shopping, errands, walks and outings.",
-      image: "/opp_s_shopping.png",
+      image: "/find_opp/elderly_shopping.avif",
       badgeIcon: <FaShoppingBag />,
       badgeBg: "bg-purple-100 text-purple-600",
     },
     {
       title: "Hobbies & Interests",
       desc: "Gardening, music, arts, crafts and more.",
-      image: "/opp_s_gardening.png",
+      image: "/find_opp/05_senior_gardening.avif",
       badgeIcon: <FaSeedling />,
       badgeBg: "bg-emerald-100 text-emerald-700",
     },
@@ -126,7 +126,7 @@ function FindJob() {
     {
       title: "Companionship & Conversation",
       desc: "Talk, listen, share and connect.",
-      image: "/opp_e_chat.png",
+      image: "/find_opp/06_friends_conversation.avif",
       badgeIcon: <FaUserFriends />,
       badgeBg: "bg-sky-100 text-sky-700",
     },
@@ -140,14 +140,14 @@ function FindJob() {
     {
       title: "Creative Projects",
       desc: "Build, explore and create together.",
-      image: "/opp_e_creative.png",
+      image: "/find_opp/09_yoga.avif",
       badgeIcon: <FaStar />,
       badgeBg: "bg-amber-100 text-amber-600",
     },
     {
       title: "Wellness & Recreation",
       desc: "Stay active, enjoy and have fun.",
-      image: "/opp_e_wellness.png",
+      image: "/find_opp/09_grandparent_child_gardening.avif",
       badgeIcon: <IoMusicalNoteSharp />,
       badgeBg: "bg-emerald-100 text-emerald-700",
     },
@@ -166,82 +166,80 @@ function FindJob() {
 
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 py-4 sm:py-6 w-full">
         {/* ─── Hero Section ─── */}
-        <section className="relative pt-2 pb-6 sm:pb-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4">
+        <section className="relative bg-white/70 backdrop-blur-xs rounded-3xl p-6 sm:p-8 lg:p-10 border border-rose-100/60 shadow-xs overflow-hidden">
+          {/* Subtle warm blobs */}
+          <div className="absolute -top-12 -right-12 w-80 h-80 bg-rose-100/40 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-1/2 -left-12 w-64 h-64 bg-amber-50/50 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -bottom-10 right-1/4 w-72 h-72 bg-emerald-50/40 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Left: Copy & CTA */}
-            <div className="lg:w-[38%] flex flex-col items-start">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-rose-500 uppercase mb-2">
-                Find Care
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            {/* Left Column: Headline & CTA */}
+            <div className="lg:col-span-5 flex flex-col items-start">
+              <span className="text-[#E8436E] font-extrabold tracking-[0.2em] text-[11px] uppercase mb-2">
+                FIND CARE
+              </span>
 
-              <h1 className="font-serif-display text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-slate-900 leading-[1.15] tracking-tight">
-                Find the right person to <br className="hidden sm:inline" />
-                support, engage and care <br className="hidden sm:inline" />
-                for someone you love.
+              <h1 className="font-serif-display text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#112540] leading-[1.14] tracking-tight">
+                Find the right person to support, engage and care for someone you love.
               </h1>
 
-              <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed max-w-sm mt-3.5">
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-3.5 max-w-md">
                 From everyday support to meaningful companionship, find someone whose time, skills and interests match your family's needs.
               </p>
 
               <button
-                onClick={scrollToCategories}
-                className="flex items-center gap-2 px-6 py-3 rounded-full bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-bold text-xs sm:text-sm shadow-md shadow-rose-500/25 transition-all mt-5"
+                onClick={() => {
+                  const el = document.getElementById("sec-children");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#E8436E] hover:bg-[#d4335c] active:scale-95 text-white font-bold text-xs sm:text-sm shadow-md shadow-rose-500/25 transition-all cursor-pointer"
               >
-                Explore Care Options <FaArrowRight className="text-[10px]" />
+                <span>Explore Care Options</span>
+                <FaArrowRight className="text-[11px]" />
               </button>
             </div>
 
-            {/* Center: Hero Image */}
-            <div className="lg:w-[36%] flex justify-center items-center relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-rose-100/40 via-amber-100/30 to-transparent rounded-full blur-2xl pointer-events-none" />
-
-              <img
-                src="/find-care-hero.png"
-                alt="Mother smiling with daughter"
-                className="relative w-full max-w-[340px] h-auto object-cover rounded-2xl drop-shadow-sm select-none"
-              />
-            </div>
-
-            {/* Right: Handwriting slogan + abstract organic blobs */}
-            <div className="lg:w-[26%] flex flex-col justify-center items-start lg:pl-6 relative">
-              {/* Decorative pastel background blobs matching mockup */}
-              <div className="absolute -top-10 -right-6 w-36 h-36 bg-rose-100/50 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute top-12 -right-4 w-28 h-28 bg-emerald-100/40 rounded-full blur-xl pointer-events-none" />
-
-              <div className="relative z-10">
-                <div className="font-serif-display text-2xl sm:text-3xl text-slate-700 italic leading-snug space-y-0.5">
-                  <p>Care.</p>
-                  <p>Connect.</p>
-                  <p>Contribute.</p>
-                </div>
-
-                {/* Hand-drawn styled heart icon */}
-                <div className="mt-2 text-rose-400">
-                  <svg
-                    width="26"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="transform -rotate-12"
-                  >
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                  </svg>
-                </div>
-
-                <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed max-w-[240px] mt-4">
-                  Because care is a two-way connection — where everyone brings something valuable.
-                </p>
+            {/* Center Column: Mother & Daughter Photo */}
+            <div className="lg:col-span-4 flex justify-center items-center">
+              <div className="relative w-full max-w-[340px] sm:max-w-[380px] rounded-3xl overflow-hidden bg-rose-50/40 shadow-xs">
+                <img
+                  src="/find_opp/07_learning_together.avif"
+                  alt="Mother and daughter sharing a warm loving moment"
+                  className="w-full h-auto max-h-[310px] object-cover object-center select-none"
+                />
               </div>
             </div>
 
+            {/* Right Column: Handwritten Tagline */}
+            <div className="lg:col-span-3 flex flex-col justify-center items-start lg:pl-4">
+              <div className="font-serif-display text-3xl sm:text-4xl text-[#1E3A5F] italic leading-[1.25] tracking-tight">
+                <p>Care.</p>
+                <p>Connect.</p>
+                <p>Contribute.</p>
+              </div>
+
+              <div className="my-2.5 text-[#E8436E]">
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </div>
+
+              <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed max-w-[220px]">
+                CareNearn brings people together to make everyday life more caring, connected and meaningful.
+              </p>
+            </div>
           </div>
         </section>
+
 
         {/* ─── Category Filter Navigation Bar ─── */}
         <section
@@ -326,7 +324,7 @@ function FindJob() {
           {/* ─── 1. For Children Section ─── */}
           <div
             id="sec-children"
-            className="bg-[#f0f8fd] border border-sky-100/80 rounded-[28px] p-5 sm:p-6 shadow-2xs"
+            className="bg-[#f0f8fd] border border-sky-100/80 rounded-[28px] p-3 sm:p-5 shadow-2xs"
           >
             <div className="flex flex-col lg:flex-row gap-5 lg:gap-6 items-stretch">
 
@@ -353,12 +351,12 @@ function FindJob() {
               </div>
 
               {/* 5 Photo Cards */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 flex-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 flex-1">
                 {childrenServices.map((service, idx) => (
                   <div
                     key={idx}
                     onClick={() => handleCardClick(service.title, "Child Education")}
-                    className="bg-white rounded-2xl p-3 sm:p-3.5 flex flex-col items-center text-center shadow-xs border border-sky-100/60 hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer group"
+                    className="bg-white rounded-2xl p-2 flex flex-col items-center text-center shadow-xs border border-sky-100/60 hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer group"
                   >
                     {/* Photo */}
                     <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-2xs">
@@ -393,7 +391,7 @@ function FindJob() {
             id="sec-seniors"
             className="bg-[#fff8ee] border border-amber-100/80 rounded-[28px] p-5 sm:p-6 shadow-2xs"
           >
-            <div className="flex flex-col lg:flex-row gap-5 lg:gap-6 items-stretch">
+            <div className="flex flex-col lg:flex-row gap-5 lg:gap-5 items-stretch">
 
               {/* Category Sidebar */}
               <div className="lg:w-[220px] shrink-0 flex flex-col justify-between py-1">
@@ -418,12 +416,12 @@ function FindJob() {
               </div>
 
               {/* 5 Photo Cards */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 flex-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 flex-1">
                 {seniorServices.map((service, idx) => (
                   <div
                     key={idx}
                     onClick={() => handleCardClick(service.title, "Senior Care")}
-                    className="bg-white rounded-2xl p-3 sm:p-3.5 flex flex-col items-center text-center shadow-xs border border-amber-100/60 hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer group"
+                    className="bg-white rounded-2xl p-2 flex flex-col items-center text-center shadow-xs border border-amber-100/60 hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer group"
                   >
                     {/* Photo */}
                     <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-2xs">
@@ -456,7 +454,7 @@ function FindJob() {
           {/* ─── 3. For Everyone + Do What They Love Card ─── */}
           <div
             id="sec-everyone"
-            className="bg-[#fbf7fd] border border-purple-100/80 rounded-[28px] p-5 sm:p-6 shadow-2xs"
+            className="bg-[#fbf7fd] border border-purple-100/80 rounded-[28px] p-5 sm:p-5 shadow-2xs"
           >
             <div className="flex flex-col lg:flex-row gap-5 lg:gap-6 items-stretch">
 
@@ -483,12 +481,12 @@ function FindJob() {
               </div>
 
               {/* 4 Photo Cards + 1 Do What They Love Card */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 flex-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 flex-1">
                 {everyoneServices.map((service, idx) => (
                   <div
                     key={idx}
                     onClick={() => handleCardClick(service.title, "Activities")}
-                    className="bg-white rounded-2xl p-3 sm:p-3.5 flex flex-col items-center text-center shadow-xs border border-purple-100/60 hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer group"
+                    className="bg-white rounded-2xl p-2 flex flex-col items-center text-center shadow-xs border border-purple-100/60 hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer group"
                   >
                     {/* Photo */}
                     <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-2xs">

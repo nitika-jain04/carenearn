@@ -6,17 +6,15 @@ import {
   FaHeart,
   FaShoppingBag,
   FaHospital,
-  FaBookOpen,
   FaSeedling,
   FaPalette,
   FaCubes,
   FaFlask,
-  FaLightbulb,
   FaStar,
   FaUserFriends,
   FaUserGraduate,
 } from "react-icons/fa";
-import { MdElderly, MdOutlineExplore, MdOutlineMenuBook } from "react-icons/md";
+import { MdElderly, MdOutlineMenuBook } from "react-icons/md";
 import { IoExtensionPuzzle, IoMusicalNoteSharp } from "react-icons/io5";
 import { LuBaby } from "react-icons/lu";
 import { TbBulbFilled } from "react-icons/tb";
@@ -27,6 +25,7 @@ const childrenCards = [
   {
     title: "Games & Puzzles",
     desc: "Chess, board games, strategy and problem-solving.",
+    image: "/find_opp/01_chess.avif",
     iconBg: "bg-[#FFE5EC]",
     iconColor: "text-[#E8436E]",
     icon: <IoExtensionPuzzle />,
@@ -35,6 +34,7 @@ const childrenCards = [
   {
     title: "Art & Creativity",
     desc: "Painting, drawing, craft, sculpture and creative expression.",
+    image: "/find_opp/02_art_painting.avif",
     iconBg: "bg-[#FEF3C7]",
     iconColor: "text-[#D97706]",
     icon: <FaPalette />,
@@ -43,6 +43,7 @@ const childrenCards = [
   {
     title: "Build & Create",
     desc: "LEGO, making, writing and hands-on projects.",
+    image: "/find_opp/03_lego_build.avif",
     iconBg: "bg-[#D1FAE5]",
     iconColor: "text-[#059669]",
     icon: <FaCubes />,
@@ -51,6 +52,7 @@ const childrenCards = [
   {
     title: "Stories & Reading",
     desc: "Reading together, storytelling and imaginative conversations.",
+    image: "/find_opp/04_reading_girl.avif",
     iconBg: "bg-[#EDE9FE]",
     iconColor: "text-[#7C3AED]",
     icon: <MdOutlineMenuBook className="text-2xl" />,
@@ -59,6 +61,7 @@ const childrenCards = [
   {
     title: "Explore, Learn & Discover",
     desc: "Science, nature, museums, interesting conversations and projects.",
+    image: "/find_opp/05_magnifier_nature.avif",
     iconBg: "bg-[#CFFAFE]",
     iconColor: "text-[#0891B2]",
     icon: <FaFlask />,
@@ -70,6 +73,7 @@ const seniorsCards = [
   {
     title: "Appointments & Hospital Visits",
     desc: "Accompany them to appointments and help with everyday tasks.",
+    image: "/find_opp/01_senior_conversation.avif",
     iconBg: "bg-[#D1FAE5]",
     iconColor: "text-[#059669]",
     icon: <FaHospital />,
@@ -78,6 +82,7 @@ const seniorsCards = [
   {
     title: "Reading & Conversation",
     desc: "Read together, talk, reminisce, discuss interests or simply spend time.",
+    image: "/find_opp/08_grandmother_reading.avif",
     iconBg: "bg-[#FFE4E6]",
     iconColor: "text-[#E11D48]",
     icon: <MdOutlineMenuBook className="text-2xl" />,
@@ -86,6 +91,7 @@ const seniorsCards = [
   {
     title: "Everyday Companionship",
     desc: "Share a meal, take a walk, play a game or join them in activities they enjoy.",
+    image: "/find_opp/12_elderly_couple_walk_2.avif",
     iconBg: "bg-[#FEF3C7]",
     iconColor: "text-[#D97706]",
     icon: <FaHeart />,
@@ -94,6 +100,7 @@ const seniorsCards = [
   {
     title: "Shopping & Outings",
     desc: "Accompany them for shopping, errands, walks and outings.",
+    image: "/find_opp/elderly_shopping.avif",
     iconBg: "bg-[#EDE9FE]",
     iconColor: "text-[#7C3AED]",
     icon: <FaShoppingBag />,
@@ -102,6 +109,7 @@ const seniorsCards = [
   {
     title: "Hobbies & Interests",
     desc: "Gardening, music, arts, crafts and more.",
+    image: "/find_opp/05_senior_gardening.avif",
     iconBg: "bg-[#DCFCE7]",
     iconColor: "text-[#15803D]",
     icon: <FaSeedling />,
@@ -113,6 +121,7 @@ const everyoneCards = [
   {
     title: "Companionship & Conversation",
     desc: "Talk, listen, share and connect.",
+    image: "/find_opp/06_friends_conversation.avif",
     iconBg: "bg-[#E0F2FE]",
     iconColor: "text-[#0284C7]",
     icon: <FaUserFriends />,
@@ -121,6 +130,7 @@ const everyoneCards = [
   {
     title: "Learning & Mentoring",
     desc: "Share knowledge, skills and life experience.",
+    image: "/opp_e_mentoring.png",
     iconBg: "bg-[#CFFAFE]",
     iconColor: "text-[#0891B2]",
     icon: <TbBulbFilled />,
@@ -129,6 +139,7 @@ const everyoneCards = [
   {
     title: "Creative Projects",
     desc: "Build, explore and create together.",
+    image: "/find_opp/09_yoga.avif",
     iconBg: "bg-[#FEF3C7]",
     iconColor: "text-[#D97706]",
     icon: <FaStar />,
@@ -137,6 +148,7 @@ const everyoneCards = [
   {
     title: "Wellness & Recreation",
     desc: "Stay active, enjoy and have fun.",
+    image: "/find_opp/09_grandparent_child_gardening.avif",
     iconBg: "bg-[#DCFCE7]",
     iconColor: "text-[#16A34A]",
     icon: <IoMusicalNoteSharp />,
@@ -147,15 +159,29 @@ const everyoneCards = [
 // ─── Reusable Card Components ────────────────────────────────────────────────
 
 /** Large card used in Children and Seniors sections */
-function ServiceCard({ title, desc, iconBg, iconColor, icon, onClick }) {
+function ServiceCard({ title, desc, image, iconBg, iconColor, icon, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-2xl p-4 sm:p-4.5 flex flex-col items-center text-center shadow-xs border border-slate-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onClick();
+        }
+      }}
+      className="group bg-white rounded-2xl p-2 flex flex-col items-center text-center shadow-xs border border-slate-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer"
     >
-      <div
-        className={`w-12 h-12 rounded-full ${iconBg} ${iconColor} flex items-center justify-center text-xl mb-3 shadow-2xs`}
-      >
+      <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 shadow-2xs">
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <div className={`-mt-3.5 mb-2 w-7 h-7 sm:w-8 sm:h-8 rounded-full ${iconBg} ${iconColor} flex items-center justify-center text-xs border-2 border-white shadow-xs group-hover:scale-110 transition-transform`}>
         {icon}
       </div>
       <h3 className="font-bold text-xs sm:text-[13px] text-[#112540] leading-tight">
@@ -167,23 +193,9 @@ function ServiceCard({ title, desc, iconBg, iconColor, icon, onClick }) {
 }
 
 /** Card used in the Everyone section — same styling as ServiceCard */
-function ActivityCard({ title, desc, iconBg, iconColor, icon, onClick }) {
-  return (
-    <div
-      onClick={onClick}
-      className="bg-white rounded-2xl p-4 sm:p-4.5 flex flex-col items-center text-center shadow-xs border border-slate-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer"
-    >
-      <div
-        className={`w-12 h-12 rounded-full ${iconBg} ${iconColor} flex items-center justify-center text-xl mb-3 shadow-2xs`}
-      >
-        {icon}
-      </div>
-      <h3 className="font-bold text-xs sm:text-[13px] text-[#112540] leading-tight">{title}</h3>
-      <p className="text-[11px] text-slate-500 leading-snug mt-1.5">{desc}</p>
-    </div>
-  );
+function ActivityCard(props) {
+  return <ServiceCard {...props} />;
 }
-
 // ─── Main Component ──────────────────────────────────────────────────────────
 
 export default function FindHelp() {
@@ -245,7 +257,7 @@ export default function FindHelp() {
             <div className="lg:col-span-4 flex justify-center items-center">
               <div className="relative w-full max-w-[340px] sm:max-w-[380px] rounded-3xl overflow-hidden bg-rose-50/40 shadow-xs">
                 <img
-                  src="/find-care-hero-cropped.png"
+                  src="/find_opp/07_learning_together.avif"
                   alt="Mother and daughter sharing a warm loving moment"
                   className="w-full h-auto max-h-[310px] object-cover object-center select-none"
                 />
@@ -317,7 +329,7 @@ export default function FindHelp() {
             </div>
 
             {/* 5 Service Cards */}
-            <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
+            <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
               {childrenCards.map((card) => (
                 <ServiceCard
                   key={card.title}
@@ -365,7 +377,7 @@ export default function FindHelp() {
             </div>
 
             {/* 5 Service Cards */}
-            <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
+            <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
               {seniorsCards.map((card) => (
                 <ServiceCard
                   key={card.title}
@@ -456,9 +468,9 @@ export default function FindHelp() {
 
               {/* Photo */}
               <div className="sm:col-span-5 flex justify-center items-center relative">
-                <div className="relative w-36 h-36 rounded-full overflow-hidden border-2 border-white shadow-xs bg-orange-100">
+                <div className="relative w-full h-full overflow-hidden border-2 border-white shadow-xs bg-orange-100">
                   <img
-                    src="/find-care-opp-card-photo.png"
+                    src="/find_opp/grandmother_grandson.avif"
                     alt="Active senior and boy sharing a joyful connection"
                     className="w-full h-full object-cover object-center"
                   />

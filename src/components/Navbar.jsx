@@ -223,7 +223,7 @@ const Navbar = () => {
           </Link>
 
           {shouldShowFindHelp && (
-            <Link to="/find-help" className={desktopLinkClasses("/find-help")}>
+            <Link to="/find-care" className={desktopLinkClasses("/find-care")}>
               Find Care
             </Link>
           )}
@@ -476,9 +476,9 @@ const Navbar = () => {
 
                   {shouldShowFindHelp && (
                     <Link
-                      to="/find-help"
+                      to="/find-care"
                       onClick={closeMenu}
-                      className={mobileLinkClasses("/find-help")}
+                      className={mobileLinkClasses("/find-care")}
                     >
                       <FiSearch className="w-5 h-5 text-rose-500" />
                       <span>Find Care</span>

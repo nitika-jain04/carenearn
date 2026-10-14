@@ -34,7 +34,7 @@ const Footer = () => {
             About Us
           </Link>
           <Link
-            to="/find-help"
+            to="/find-care"
             className="hover:underline-offset-2 hover:underline decoration-rose-500 decoration-5"
           >
             Need Help?

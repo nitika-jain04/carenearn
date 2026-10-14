@@ -242,7 +242,7 @@ const About = () => {
 
                 <div className="flex items-center gap-3">
                   <Link
-                    to="/find-help"
+                    to="/find-care"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#E8436E] hover:bg-[#d6335d] text-white font-bold text-xs shadow-md shadow-rose-500/20 transition-all"
                   >
                     <span>Find Care</span>
