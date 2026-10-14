@@ -133,7 +133,7 @@ function FindJob() {
     {
       title: "Learning & Mentoring",
       desc: "Share knowledge, skills and life experience.",
-      image: "/opp_e_mentoring.png",
+      image: "/find_opp/07_learning_together.avif",
       badgeIcon: <TbBulbFilled />,
       badgeBg: "bg-cyan-100 text-cyan-700",
     },

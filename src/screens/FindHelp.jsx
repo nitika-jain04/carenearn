@@ -130,7 +130,7 @@ const everyoneCards = [
   {
     title: "Learning & Mentoring",
     desc: "Share knowledge, skills and life experience.",
-    image: "/opp_e_mentoring.png",
+    image: "/find_opp/07_learning_together.avif",
     iconBg: "bg-[#CFFAFE]",
     iconColor: "text-[#0891B2]",
     icon: <TbBulbFilled />,
