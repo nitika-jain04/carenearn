@@ -166,25 +166,69 @@ function FindJob() {
 
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 py-4 sm:py-6 w-full">
         {/* ─── Hero Section ─── */}
-        <section className="relative bg-white/70 backdrop-blur-xs rounded-3xl p-6 sm:p-8 lg:p-10 border border-rose-100/60 shadow-xs overflow-hidden">
-          {/* Subtle warm blobs */}
-          <div className="absolute -top-12 -right-12 w-80 h-80 bg-rose-100/40 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute top-1/2 -left-12 w-64 h-64 bg-amber-50/50 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute -bottom-10 right-1/4 w-72 h-72 bg-emerald-50/40 rounded-full blur-3xl pointer-events-none" />
+        <section className="relative isolate overflow-hidden rounded-[2rem] min-h-[250px] bg-gradient-to-r from-[#FFF7F3] via-[#FFF9F4] to-[#FFF0F2]">
+          {/* Warm, softly blended background accents */}
+          <div className="absolute -left-16 top-8 h-52 w-52 rounded-full bg-[#FFE3DA]/70 blur-3xl pointer-events-none" />
+          <div className="absolute right-[-3rem] top-[-4rem] h-64 w-64 rounded-full bg-[#F9DCE4]/75 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-[-5rem] left-[35%] h-52 w-72 rounded-full bg-[#FCE9D5]/70 blur-3xl pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            {/* Left Column: Headline & CTA */}
-            <div className="lg:col-span-5 flex flex-col items-start">
+          {/* The photo fades into the warm background instead of sitting in a separate card */}
+          <div className="absolute inset-y-0 left-[35%] right-[30%] hidden lg:block pointer-events-none">
+            <img
+              src="/find_opp/07_learning_together.avif"
+              alt="Mother and daughter sharing a warm loving moment"
+              className="h-full w-full object-cover object-center"
+              style={{
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 14%, black 78%, transparent 100%)",
+                maskImage: "linear-gradient(to right, transparent 0%, black 14%, black 78%, transparent 100%)",
+                opacity: 0.98,
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8F4]/30 via-transparent to-[#FFF8F4]/10" />
+          </div>
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-4 px-6 py-8 sm:px-8 sm:py-10 lg:px-8 lg:py-9 min-h-[330px] sm:min-h-[360px] lg:min-h-[390px]">
+            {/* Headline and CTA */}
+            {/* <div className="lg:col-span-5 flex flex-col items-start">
               <span className="text-[#E8436E] font-extrabold tracking-[0.2em] text-[11px] uppercase mb-2">
                 FIND CARE
               </span>
-
-              <h1 className="font-serif-display text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#112540] leading-[1.14] tracking-tight">
+              <h1 className="font-serif-display text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#112540] leading-[1.12] tracking-tight max-w-[470px]">
                 Find the right person to support, engage and care for someone you love.
               </h1>
-
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-3.5 max-w-md">
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-3 max-w-md">
                 From everyday support to meaningful companionship, find someone whose time, skills and interests match your family's needs.
+              </p>
+              <button
+                onClick={() => {
+                  const el = document.getElementById("sec-children");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#E8436E] hover:bg-[#d4335c] active:scale-95 text-white font-bold text-xs sm:text-sm shadow-lg shadow-rose-500/20 transition-all cursor-pointer"
+              >
+                <span>Explore Care Options</span>
+                <FaArrowRight className="text-[11px]" />
+              </button>
+            </div> */}
+
+            {/* Headline and CTA */}
+            <div className="lg:col-span-5 flex flex-col items-start">
+              <span className="mb-1.5 text-[12px] font-bold uppercase tracking-[0.22em] text-[#F04470]">
+                FIND CARE
+              </span>
+
+              <h1 className="max-w-[390px] font-serif-display text-[28px] sm:text-[32px] lg:text-[34px] font-bold leading-[1.1] tracking-[-0.035em] text-[#173653]">
+                Find the right person to
+                <br />
+                support, engage and care
+                <br />
+                for someone you love.
+              </h1>
+
+              <p className="mt-3 max-w-[390px] text-[14px] leading-[1.45] font-normal text-[#64839A]">
+                From everyday support to meaningful companionship,
+                find someone whose time, skills and interests match
+                your family's needs.
               </p>
 
               <button
@@ -192,49 +236,68 @@ function FindJob() {
                   const el = document.getElementById("sec-children");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#E8436E] hover:bg-[#d4335c] active:scale-95 text-white font-bold text-xs sm:text-sm shadow-md shadow-rose-500/25 transition-all cursor-pointer"
+                className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#F04470] px-6 py-2 text-[12px] font-semibold text-white transition-colors hover:bg-[#D93460]"
               >
                 <span>Explore Care Options</span>
-                <FaArrowRight className="text-[11px]" />
+                <FaArrowRight className="text-[10px]" />
               </button>
             </div>
 
-            {/* Center Column: Mother & Daughter Photo */}
-            <div className="lg:col-span-4 flex justify-center items-center">
-              <div className="relative w-full max-w-[340px] sm:max-w-[380px] rounded-3xl overflow-hidden bg-rose-50/40 shadow-xs">
+            {/* Mobile photo stays in flow; desktop uses the softly faded background photo */}
+            <div className="lg:col-span-4 lg:hidden">
+              <div className="overflow-hidden rounded-[2rem]">
                 <img
                   src="/find_opp/07_learning_together.avif"
                   alt="Mother and daughter sharing a warm loving moment"
-                  className="w-full h-auto max-h-[310px] object-cover object-center select-none"
+                  className="w-full max-h-[260px] object-cover object-center"
                 />
               </div>
             </div>
 
-            {/* Right Column: Handwritten Tagline */}
-            <div className="lg:col-span-3 flex flex-col justify-center items-start lg:pl-4">
-              <div className="font-serif-display text-3xl sm:text-4xl text-[#1E3A5F] italic leading-[1.25] tracking-tight">
+            {/* Tagline and supporting copy */}
+            <div className="lg:col-span-3 lg:col-start-10 flex flex-col items-center justify-center text-center">
+              {/* Script heading */}
+              <div
+                className="text-left text-[#2F4A63] text-[32px] font-medium leading-[1.12] tracking-[0.01em]"
+                style={{
+                  fontFamily: "'Caveat', 'Segoe Script', cursive",
+                  transform: "rotate(-5deg)",
+                  transformOrigin: "center",
+                }}
+              >
                 <p>Care.</p>
-                <p>Connect.</p>
-                <p>Contribute.</p>
+                <p className="pl-2">Connect.</p>
+                <p className="pl-4">Contribute.</p>
+
+                {/* Outlined heart, nudged right like the image */}
+                <div className="mt-1 mb-4 ml-14 text-[#F2557A]">
+                  <svg
+                    width="34"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 20.5C6 16 3 12.8 3 9.2 3 6.6 5 4.6 7.5 4.6c1.8 0 3.5 1 4.5 2.6 1-1.6 2.7-2.6 4.5-2.6C19 4.6 21 6.6 21 9.2c0 3.6-3 6.8-9 11.3z" />
+                  </svg>
+                </div>
               </div>
 
-              <div className="my-2.5 text-[#E8436E]">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-              </div>
 
-              <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed max-w-[220px]">
-                CareNearn brings people together to make everyday life more caring, connected and meaningful.
+              {/* Paragraph */}
+              <p
+                className="text-sm leading-[1.6] font-medium text-[#3F5F7A]"
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              >
+                <span className="font-semibold">CareNearn</span> brings people together
+                <br />
+                to make everyday life more
+                <br />
+                caring, connected and meaningful.
               </p>
             </div>
           </div>
